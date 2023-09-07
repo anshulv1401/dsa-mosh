@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //using DSA;
 using DSA.LinkedList;
+using DSA.Queues;
 using DSA.Stacks;
 
 #region Arrays
@@ -173,20 +174,32 @@ using DSA.Stacks;
 // Console.WriteLine(custom2StackWith1Array.IsEmpty2());
 
 
-CustomMinStack customMinStack = new();
+// CustomMinStack customMinStack = new();
 
-customMinStack.Push(5);
-customMinStack.Push(2);
-customMinStack.Push(10);
-customMinStack.Push(1);
-Console.WriteLine(customMinStack.ToString());
+// customMinStack.Push(5);
+// customMinStack.Push(2);
+// customMinStack.Push(10);
+// customMinStack.Push(1);
+// Console.WriteLine(customMinStack.ToString());
 
-Console.WriteLine(customMinStack.Min());
-customMinStack.Pop();
-customMinStack.Pop();
-customMinStack.Pop();
-Console.WriteLine(customMinStack.Min());
+// Console.WriteLine(customMinStack.Min());
+// customMinStack.Pop();
+// customMinStack.Pop();
+// customMinStack.Pop();
+// Console.WriteLine(customMinStack.Min());
 
+#endregion
 
+#region stack
+
+QueuesPratice queuesPratice = new();
+
+Queue<int> queue = new();
+queue.Enqueue(10);
+queue.Enqueue(20);
+queue.Enqueue(30);
+queue.Enqueue(40);
+
+Console.WriteLine(queuesPratice.ReverseQueue(queue));
 
 #endregion

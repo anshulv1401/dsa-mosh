@@ -47,3 +47,18 @@ Complixity all O(1)
 - pop
 - peek
 - isEmpty
+
+## Queues (FIFO)
+
+- Printers
+- Operating systems
+- Web servers
+- Live support systems
+
+Complixity all O(1)
+
+- enqueue
+- dequeue
+- peek
+- isEmpty
+- isFull
