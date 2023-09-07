@@ -2,11 +2,11 @@ using System.Text;
 
 namespace DSA.Stacks
 {
-    public class CustomStack
+    public class StackPractice
     {
         private readonly Dictionary<char, char> brackets = new() { { ')', '(' } };
 
-        public CustomStack()
+        public StackPractice()
         {
             brackets.Add('>', '<');
             brackets.Add(']', '[');
@@ -46,6 +46,5 @@ namespace DSA.Stacks
             }
             return stack.Count == 0;
         }
-
     }
 }

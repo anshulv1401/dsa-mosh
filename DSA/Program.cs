@@ -86,10 +86,32 @@ using DSA.Stacks;
 
 #region stack
 
-CustomStack customStack = new();
+StackPractice stackPractice = new();
 
-Console.WriteLine(customStack.ReverseAString("Hello!"));
+Console.WriteLine(stackPractice.ReverseAString("Hello!"));
+Console.WriteLine(stackPractice.IsBalancedExpression("((([[[<<({{}})>>]]])))"));
 
-Console.WriteLine(customStack.IsBalancedExpression("((([[[<<({{}})>>]]])))"));
+CustomStackArray customStackArray = new();
+
+customStackArray.Push(10);
+customStackArray.Push(20);
+customStackArray.Push(30);
+customStackArray.Push(40);
+customStackArray.Push(50);
+customStackArray.Push(60);
+
+Console.WriteLine(customStackArray.ToString());
+
+Console.WriteLine(customStackArray.Pop());
+Console.WriteLine(customStackArray.Pop());
+Console.WriteLine(customStackArray.Pop());
+Console.WriteLine(customStackArray.Pop());
+Console.WriteLine(customStackArray.Pop());
+
+Console.WriteLine(customStackArray.Peek());
+Console.WriteLine(customStackArray.IsEmpty());
+Console.WriteLine(customStackArray.Pop());
+Console.WriteLine(customStackArray.IsEmpty());
+
 
 #endregion
