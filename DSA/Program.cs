@@ -192,14 +192,33 @@ using DSA.Stacks;
 
 #region stack
 
-QueuesPratice queuesPratice = new();
+// QueuesPratice queuesPratice = new();
 
-Queue<int> queue = new();
-queue.Enqueue(10);
-queue.Enqueue(20);
-queue.Enqueue(30);
-queue.Enqueue(40);
+// Queue<int> queue = new();
+// queue.Enqueue(10);
+// queue.Enqueue(20);
+// queue.Enqueue(30);
+// queue.Enqueue(40);
 
-Console.WriteLine(queuesPratice.ReverseQueue(queue));
+// Console.WriteLine(queuesPratice.ReverseQueue(queue));
+
+
+CustomQueueArray customQueueArray = new();
+customQueueArray.Enqueue(10);
+customQueueArray.Enqueue(20);
+customQueueArray.Enqueue(30);
+customQueueArray.Enqueue(40);
+customQueueArray.Enqueue(50);
+
+customQueueArray.Enqueue(60);
+customQueueArray.Enqueue(70);
+customQueueArray.Enqueue(80);
+customQueueArray.Enqueue(90);
+customQueueArray.Enqueue(100);
+
+Console.WriteLine(customQueueArray.ToString());
+Console.WriteLine(customQueueArray.IsFull());
+Console.WriteLine(customQueueArray.IsEmpty());
+
 
 #endregion
