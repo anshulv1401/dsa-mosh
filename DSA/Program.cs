@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //using DSA;
 using DSA.LinkedList;
+using DSA.Stacks;
 
 #region Arrays
 
@@ -37,7 +38,6 @@ using DSA.LinkedList;
 
 #region linkedlist
 
-
 // var customll = new CustomLinkedList<int>();
 // customll.AddLast(50);
 // customll.AddLast(60);
@@ -59,27 +59,37 @@ using DSA.LinkedList;
 // Console.WriteLine("Size " + customll.Lenght());
 
 
-var customll2 = new CustomLinkedList<int>();
+// var customll2 = new CustomLinkedList<int>();
 
-customll2.AddLast(50);
-customll2.AddLast(60);
-customll2.AddLast(70);
-customll2.AddFirst(40);
-customll2.AddFirst(30);
-customll2.AddFirst(20);
-
-
-Console.WriteLine(customll2.ToString());
-customll2.Reverse();
-Console.WriteLine(customll2.ToString());
+// customll2.AddLast(50);
+// customll2.AddLast(60);
+// customll2.AddLast(70);
+// customll2.AddFirst(40);
+// customll2.AddFirst(30);
+// customll2.AddFirst(20);
 
 
-Console.WriteLine(customll2.FindKthNodeFromEnd(1));
-Console.WriteLine(customll2.FindKthNodeFromEnd(6));
-Console.WriteLine(customll2.FindKthNodeFromEnd(0));
+// Console.WriteLine(customll2.ToString());
+// customll2.Reverse();
+// Console.WriteLine(customll2.ToString());
 
-Console.WriteLine("FindMiddle: " + customll2.FindMiddle());
-customll2.CreateLoop();
-Console.WriteLine("Contains loop?: " + customll2.CheckForLoop());
+
+// Console.WriteLine(customll2.FindKthNodeFromEnd(1));
+// Console.WriteLine(customll2.FindKthNodeFromEnd(6));
+// Console.WriteLine(customll2.FindKthNodeFromEnd(0));
+
+// Console.WriteLine("FindMiddle: " + customll2.FindMiddle());
+// customll2.CreateLoop();
+// Console.WriteLine("Contains loop?: " + customll2.CheckForLoop());
+
+#endregion
+
+#region stack
+
+CustomStack customStack = new();
+
+Console.WriteLine(customStack.ReverseAString("Hello!"));
+
+Console.WriteLine(customStack.IsBalancedExpression("((([[[<<({{}})>>]]])))"));
 
 #endregion

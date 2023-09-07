@@ -33,3 +33,17 @@ Complexities
   - Beginning O(1)
   - Middle O(n)
   - End o(n) in singly/O(1) in doubly
+
+## Stack (LIFO)
+
+- Implement the undo feature
+- Build compliers (eg sysntax checking)
+- Evaluate expressions `(eg 1 + 2*3)`
+- Build navigation (eg forward/back)
+
+Complixity all O(1)
+
+- push
+- pop
+- peek
+- isEmpty
