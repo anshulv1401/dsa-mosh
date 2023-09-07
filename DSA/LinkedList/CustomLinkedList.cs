@@ -121,6 +121,52 @@ namespace DSA.LinkedList
             return -1;
         }
 
+        public void Reverse()
+        {
+            if (first == null)
+            {
+                throw new Exception("Linked list is empty");
+            }
+
+            var current = first;
+            Node<T>? prev = null;
+            while (current != null)
+            {
+                var next = current.Next;
+                current.Next = prev;
+                prev = current;
+                current = next;
+            }
+
+            (last, first) = (first, last);
+        }
+
+
+        public T FindKthNodeFromEnd(int k)
+        {
+            if (first == null)
+            {
+                throw new Exception("Linked list is empty");
+            }
+
+            Node<T>? current = first;
+
+            for (int i = 0; i < k - 1; i++)
+            {
+                current = current.Next;
+                if (current == null)
+                    throw new Exception("invalid value of K");
+            }
+
+            Node<T>? target = first;
+            while (current.Next != null)
+            {
+                target = target.Next;
+                current = current.Next;
+            }
+
+            return target.Value;
+        }
 
         public override string ToString()
         {
