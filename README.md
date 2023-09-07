@@ -8,7 +8,28 @@ Big O notation is a mathematical notation that descirbes the limiting behavior o
 
 `List<string>`
 
-Lookup by index O(1)
-Lookup by value O(n);
-Insert O(n);
-Delete O(n);
+Complixity
+
+- Lookup by index O(1)
+- Lookup by value O(n);
+- Insert O(n);
+- Delete O(n);
+
+## Linkedlist
+
+- Second Most unsed data structures
+- Grow and shrink automatically
+- Take a bit more memory
+
+Complexities
+
+- Lookup
+  - By Index O(n)
+  - By Value O(n)
+- Insert
+  - Beginneing/End O(1)
+  - Middle O(n)
+- Delete
+  - Beginning O(1)
+  - Middle O(n)
+  - End o(n) in singly/O(1) in doubly

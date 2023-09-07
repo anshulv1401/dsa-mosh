@@ -141,7 +141,7 @@ namespace DSA.LinkedList
             (last, first) = (first, last);
         }
 
-
+        //If we don't know the size and last pointer
         public T FindKthNodeFromEnd(int k)
         {
             if (first == null)
@@ -167,6 +167,77 @@ namespace DSA.LinkedList
 
             return target.Value;
         }
+
+        //If we don't know the size
+        public T FindMiddle()
+        {
+            if (first == null)
+            {
+                throw new Exception("Linked list is empty");
+            }
+
+            if (first.Next == null)
+            {
+                return first.Value;
+            }
+
+            Node<T>? fast = first;
+            Node<T>? slow = first;
+            while (fast.Next != null)
+            {
+                fast = fast.Next.Next;
+                if (fast == null)
+                    break;
+
+                slow = slow.Next;
+            }
+
+            return slow.Value;
+        }
+
+        //If we don't know the size
+        public bool CheckForLoop()
+        {
+            if (first == null)
+            {
+                throw new Exception("Linked list is empty");
+            }
+
+            Node<T>? fast = first;
+            Node<T>? slow = first;
+            while (fast != null && fast.Next != null)
+            {
+                fast = fast.Next.Next;
+                slow = slow.Next;
+                if (fast == slow)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+        //If we don't know the size
+        public void CreateLoop()
+        {
+            if (first == null || first.Next == null)
+            {
+                throw new Exception("Can not create loop");
+            }
+
+            Node<T>? fast = first;
+            Node<T>? slow = first;
+            while (fast != last && fast.Next != last)
+            {
+                fast = fast.Next.Next;
+                slow = slow.Next;
+            }
+
+            fast.Next = slow;
+        }
+
 
         public override string ToString()
         {

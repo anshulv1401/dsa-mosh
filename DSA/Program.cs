@@ -68,6 +68,7 @@ customll2.AddFirst(40);
 customll2.AddFirst(30);
 customll2.AddFirst(20);
 
+
 Console.WriteLine(customll2.ToString());
 customll2.Reverse();
 Console.WriteLine(customll2.ToString());
@@ -77,8 +78,8 @@ Console.WriteLine(customll2.FindKthNodeFromEnd(1));
 Console.WriteLine(customll2.FindKthNodeFromEnd(6));
 Console.WriteLine(customll2.FindKthNodeFromEnd(0));
 
-
-
-
+Console.WriteLine("FindMiddle: " + customll2.FindMiddle());
+customll2.CreateLoop();
+Console.WriteLine("Contains loop?: " + customll2.CheckForLoop());
 
 #endregion
