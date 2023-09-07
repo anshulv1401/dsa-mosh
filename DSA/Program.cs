@@ -86,32 +86,56 @@ using DSA.Stacks;
 
 #region stack
 
-StackPractice stackPractice = new();
+// StackPractice stackPractice = new();
 
-Console.WriteLine(stackPractice.ReverseAString("Hello!"));
-Console.WriteLine(stackPractice.IsBalancedExpression("((([[[<<({{}})>>]]])))"));
+// Console.WriteLine(stackPractice.ReverseAString("Hello!"));
+// Console.WriteLine(stackPractice.IsBalancedExpression("((([[[<<({{}})>>]]])))"));
 
-CustomStackArray customStackArray = new();
+// CustomStackArray customStackArray = new();
 
-customStackArray.Push(10);
-customStackArray.Push(20);
-customStackArray.Push(30);
-customStackArray.Push(40);
-customStackArray.Push(50);
-customStackArray.Push(60);
+// customStackArray.Push(10);
+// customStackArray.Push(20);
+// customStackArray.Push(30);
+// customStackArray.Push(40);
+// customStackArray.Push(50);
+// customStackArray.Push(60);
 
-Console.WriteLine(customStackArray.ToString());
+// Console.WriteLine(customStackArray.ToString());
 
-Console.WriteLine(customStackArray.Pop());
-Console.WriteLine(customStackArray.Pop());
-Console.WriteLine(customStackArray.Pop());
-Console.WriteLine(customStackArray.Pop());
-Console.WriteLine(customStackArray.Pop());
+// Console.WriteLine(customStackArray.Pop());
+// Console.WriteLine(customStackArray.Pop());
+// Console.WriteLine(customStackArray.Pop());
+// Console.WriteLine(customStackArray.Pop());
+// Console.WriteLine(customStackArray.Pop());
 
-Console.WriteLine(customStackArray.Peek());
-Console.WriteLine(customStackArray.IsEmpty());
-Console.WriteLine(customStackArray.Pop());
-Console.WriteLine(customStackArray.IsEmpty());
+// Console.WriteLine(customStackArray.Peek());
+// Console.WriteLine(customStackArray.IsEmpty());
+// Console.WriteLine(customStackArray.Pop());
+// Console.WriteLine(customStackArray.IsEmpty());
+
+
+
+CustomStackLinkedList CustomStackLinkedList = new();
+
+CustomStackLinkedList.Push(10);
+CustomStackLinkedList.Push(20);
+CustomStackLinkedList.Push(30);
+CustomStackLinkedList.Push(40);
+CustomStackLinkedList.Push(50);
+CustomStackLinkedList.Push(60);
+
+Console.WriteLine(CustomStackLinkedList.ToString());
+
+Console.WriteLine(CustomStackLinkedList.Pop());
+Console.WriteLine(CustomStackLinkedList.Pop());
+Console.WriteLine(CustomStackLinkedList.Pop());
+Console.WriteLine(CustomStackLinkedList.Pop());
+Console.WriteLine(CustomStackLinkedList.Pop());
+
+Console.WriteLine(CustomStackLinkedList.Peek());
+Console.WriteLine(CustomStackLinkedList.IsEmpty());
+Console.WriteLine(CustomStackLinkedList.Pop());
+Console.WriteLine(CustomStackLinkedList.IsEmpty());
 
 
 #endregion
