@@ -115,27 +115,78 @@ using DSA.Stacks;
 
 
 
-CustomStackLinkedList CustomStackLinkedList = new();
+// CustomStackLinkedList CustomStackLinkedList = new();
 
-CustomStackLinkedList.Push(10);
-CustomStackLinkedList.Push(20);
-CustomStackLinkedList.Push(30);
-CustomStackLinkedList.Push(40);
-CustomStackLinkedList.Push(50);
-CustomStackLinkedList.Push(60);
+// CustomStackLinkedList.Push(10);
+// CustomStackLinkedList.Push(20);
+// CustomStackLinkedList.Push(30);
+// CustomStackLinkedList.Push(40);
+// CustomStackLinkedList.Push(50);
+// CustomStackLinkedList.Push(60);
 
-Console.WriteLine(CustomStackLinkedList.ToString());
+// Console.WriteLine(CustomStackLinkedList.ToString());
 
-Console.WriteLine(CustomStackLinkedList.Pop());
-Console.WriteLine(CustomStackLinkedList.Pop());
-Console.WriteLine(CustomStackLinkedList.Pop());
-Console.WriteLine(CustomStackLinkedList.Pop());
-Console.WriteLine(CustomStackLinkedList.Pop());
+// Console.WriteLine(CustomStackLinkedList.Pop());
+// Console.WriteLine(CustomStackLinkedList.Pop());
+// Console.WriteLine(CustomStackLinkedList.Pop());
+// Console.WriteLine(CustomStackLinkedList.Pop());
+// Console.WriteLine(CustomStackLinkedList.Pop());
 
-Console.WriteLine(CustomStackLinkedList.Peek());
-Console.WriteLine(CustomStackLinkedList.IsEmpty());
-Console.WriteLine(CustomStackLinkedList.Pop());
-Console.WriteLine(CustomStackLinkedList.IsEmpty());
+// Console.WriteLine(CustomStackLinkedList.Peek());
+// Console.WriteLine(CustomStackLinkedList.IsEmpty());
+// Console.WriteLine(CustomStackLinkedList.Pop());
+// Console.WriteLine(CustomStackLinkedList.IsEmpty());
+
+
+// Custom2StackWith1Array custom2StackWith1Array = new();
+
+// custom2StackWith1Array.Push1(10);
+// custom2StackWith1Array.Push1(20);
+// custom2StackWith1Array.Push1(30);
+// custom2StackWith1Array.Push1(40);
+// custom2StackWith1Array.Push1(50);
+
+// custom2StackWith1Array.Push2(60);
+// custom2StackWith1Array.Push2(70);
+// custom2StackWith1Array.Push2(80);
+// custom2StackWith1Array.Push2(90);
+// custom2StackWith1Array.Push2(100);
+
+// Console.WriteLine(custom2StackWith1Array.ToString());
+
+// Console.WriteLine(custom2StackWith1Array.IsFull1());
+// Console.WriteLine(custom2StackWith1Array.IsFull2());
+
+// Console.WriteLine(custom2StackWith1Array.Pop1());
+// Console.WriteLine(custom2StackWith1Array.Pop1());
+// Console.WriteLine(custom2StackWith1Array.Pop1());
+// Console.WriteLine(custom2StackWith1Array.Pop1());
+
+// Console.WriteLine(custom2StackWith1Array.Pop2());
+// Console.WriteLine(custom2StackWith1Array.Pop2());
+// Console.WriteLine(custom2StackWith1Array.Pop2());
+// Console.WriteLine(custom2StackWith1Array.Pop2());
+
+// Console.WriteLine(custom2StackWith1Array.Peek1());
+// Console.WriteLine(custom2StackWith1Array.Peek2());
+// Console.WriteLine(custom2StackWith1Array.IsEmpty1());
+// Console.WriteLine(custom2StackWith1Array.IsEmpty2());
+
+
+CustomMinStack customMinStack = new();
+
+customMinStack.Push(5);
+customMinStack.Push(2);
+customMinStack.Push(10);
+customMinStack.Push(1);
+Console.WriteLine(customMinStack.ToString());
+
+Console.WriteLine(customMinStack.Min());
+customMinStack.Pop();
+customMinStack.Pop();
+customMinStack.Pop();
+Console.WriteLine(customMinStack.Min());
+
 
 
 #endregion

@@ -4,7 +4,7 @@ namespace DSA.LinkedList
 {
     class CustomLinkedList<T> where T : struct
     {
-        private class Node<T> where T : struct
+        private class Node<K> where K : struct
         {
             public Node(T value, Node<T>? next)
             {
