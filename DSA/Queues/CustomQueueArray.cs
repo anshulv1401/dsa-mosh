@@ -44,6 +44,7 @@ namespace DSA.Queues
         {
             return size == 0;
         }
+
         //isFull
         public bool IsFull()
         {
