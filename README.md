@@ -62,3 +62,23 @@ Complixity all O(1)
 - peek
 - isEmpty
 - isFull
+
+## Hash Tables (FIFO)
+
+- Spell checkers
+- Dictionaries
+- Compilers
+- Code editors
+
+Impl
+
+- Java - HashMap
+- Javascript - Object
+- Python - Dictionary
+- C# - Dictionary
+
+Operation O(1)
+
+- Insert
+- Lookup
+- Delete

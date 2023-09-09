@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //using DSA;
+using DSA.Dictionary;
 using DSA.LinkedList;
 using DSA.Queues;
 using DSA.Stacks;
@@ -299,35 +300,44 @@ using DSA.Stacks;
 // Console.WriteLine(customQueueLl.Size);
 
 
-var customStackWith2Queue = new CustomStackWith2Queue();
-customStackWith2Queue.Push(10);
-customStackWith2Queue.Push(20);
-customStackWith2Queue.Push(30);
-customStackWith2Queue.Push(40);
-Console.WriteLine(customStackWith2Queue.ToString());
-Console.WriteLine(customStackWith2Queue.Pop());
-Console.WriteLine(customStackWith2Queue.Peek());
-Console.WriteLine(customStackWith2Queue.ToString());
-Console.WriteLine(customStackWith2Queue.IsEmpty());
-Console.WriteLine(customStackWith2Queue.Size());
-Console.WriteLine(customStackWith2Queue.Pop());
-Console.WriteLine(customStackWith2Queue.Pop());
-Console.WriteLine(customStackWith2Queue.Pop());
+// var customStackWith2Queue = new CustomStackWith2Queue();
+// customStackWith2Queue.Push(10);
+// customStackWith2Queue.Push(20);
+// customStackWith2Queue.Push(30);
+// customStackWith2Queue.Push(40);
+// Console.WriteLine(customStackWith2Queue.ToString());
+// Console.WriteLine(customStackWith2Queue.Pop());
+// Console.WriteLine(customStackWith2Queue.Peek());
+// Console.WriteLine(customStackWith2Queue.ToString());
+// Console.WriteLine(customStackWith2Queue.IsEmpty());
+// Console.WriteLine(customStackWith2Queue.Size());
+// Console.WriteLine(customStackWith2Queue.Pop());
+// Console.WriteLine(customStackWith2Queue.Pop());
+// Console.WriteLine(customStackWith2Queue.Pop());
 
 
-var customStackWith1Queue = new CustomStackWith1Queue();
-customStackWith1Queue.Push(10);
-customStackWith1Queue.Push(20);
-customStackWith1Queue.Push(30);
-customStackWith1Queue.Push(40);
-Console.WriteLine(customStackWith1Queue.ToString());
-Console.WriteLine(customStackWith1Queue.Pop());
-Console.WriteLine(customStackWith1Queue.Peek());
-Console.WriteLine(customStackWith1Queue.ToString());
-Console.WriteLine(customStackWith1Queue.IsEmpty());
-Console.WriteLine(customStackWith1Queue.Size());
-Console.WriteLine(customStackWith1Queue.Pop());
-Console.WriteLine(customStackWith1Queue.Pop());
-Console.WriteLine(customStackWith1Queue.Pop());
+// var customStackWith1Queue = new CustomStackWith1Queue();
+// customStackWith1Queue.Push(10);
+// customStackWith1Queue.Push(20);
+// customStackWith1Queue.Push(30);
+// customStackWith1Queue.Push(40);
+// Console.WriteLine(customStackWith1Queue.ToString());
+// Console.WriteLine(customStackWith1Queue.Pop());
+// Console.WriteLine(customStackWith1Queue.Peek());
+// Console.WriteLine(customStackWith1Queue.ToString());
+// Console.WriteLine(customStackWith1Queue.IsEmpty());
+// Console.WriteLine(customStackWith1Queue.Size());
+// Console.WriteLine(customStackWith1Queue.Pop());
+// Console.WriteLine(customStackWith1Queue.Pop());
+// Console.WriteLine(customStackWith1Queue.Pop());
+
+
+#endregion
+
+#region HashTables
+
+DictionaryPratice.DemoDisctionary();
+Console.WriteLine(DictionaryPratice.FirstNonRepeatedCharacter("a green apple"));
+Console.WriteLine(DictionaryPratice.FirstRepeatedCharacter("green apple"));
 
 #endregion
