@@ -82,3 +82,12 @@ Operation O(1)
 - Insert
 - Lookup
 - Delete
+
+Hash function is a function that gets a value and maps it to a different kind of value, which we call a hash value, a hash code, digest or just hash
+
+Collisions: if a hash function return same hash for different key, then it is called collision.
+
+Solution
+
+- Chaining: Using linkedlist in place of value itself.
+- Open addressing: Finding a new address for the 2nd value

@@ -1,4 +1,4 @@
-namespace DSA.Dictionary
+namespace DSA.HashTables
 {
 
     public class DictionaryPratice
@@ -30,12 +30,16 @@ namespace DSA.Dictionary
                 Console.WriteLine(item.Key + ":" + item.Value);
             }
 
+            string str = "asdf";
+            Console.WriteLine(str.GetHashCode());
 
-            HashSet<int> set = new();
-            set.Add(1);
-            set.Add(1); // allowed
-            set.Add(2);
-            set.Add(3);
+            HashSet<int> set = new()
+            {
+                1,
+                1, // allowed
+                2,
+                3
+            };
             Console.WriteLine(string.Join(",", set));
 
         }

@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //using DSA;
-using DSA.Dictionary;
+using DSA.HashTables;
 using DSA.LinkedList;
 using DSA.Queues;
 using DSA.Stacks;
