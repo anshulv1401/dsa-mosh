@@ -2,6 +2,7 @@ using System.Text;
 
 namespace DSA.Stacks
 {
+    // Design a stack that supports push, pop and retrieving the minimum value in constant time.
     public class CustomMinStack2
     {
         private readonly int[] stack;

@@ -190,7 +190,7 @@ using DSA.Stacks;
 
 #endregion
 
-#region stack
+#region Queue
 
 // QueuesPratice queuesPratice = new();
 
@@ -236,30 +236,41 @@ using DSA.Stacks;
 // Console.WriteLine(customQueueWith2Stack.Dequeue());
 
 
-CustomPriorityQueues customPriorityQueues = new();
-customPriorityQueues.Enqueue(50);
-Console.WriteLine(customPriorityQueues.ToString());
-customPriorityQueues.Enqueue(20);
-Console.WriteLine(customPriorityQueues.ToString());
-customPriorityQueues.Enqueue(30);
-Console.WriteLine(customPriorityQueues.ToString());
-customPriorityQueues.Enqueue(61);
-Console.WriteLine(customPriorityQueues.ToString());
-customPriorityQueues.Enqueue(62);
-Console.WriteLine(customPriorityQueues.ToString());
-customPriorityQueues.Enqueue(65);
-Console.WriteLine(customPriorityQueues.ToString());
-customPriorityQueues.Enqueue(0);
-Console.WriteLine(customPriorityQueues.ToString());
-customPriorityQueues.Enqueue(-1);
-Console.WriteLine(customPriorityQueues.ToString());
-customPriorityQueues.Enqueue(60);
-Console.WriteLine(customPriorityQueues.ToString());
-customPriorityQueues.Dequeue();
-Console.WriteLine(customPriorityQueues.ToString());
-customPriorityQueues.Dequeue();
-Console.WriteLine(customPriorityQueues.ToString());
-customPriorityQueues.Dequeue();
-Console.WriteLine(customPriorityQueues.ToString());
+// CustomPriorityQueues customPriorityQueues = new();
+// customPriorityQueues.Enqueue(50);
+// Console.WriteLine(customPriorityQueues.ToString());
+// customPriorityQueues.Enqueue(20);
+// Console.WriteLine(customPriorityQueues.ToString());
+// customPriorityQueues.Enqueue(30);
+// Console.WriteLine(customPriorityQueues.ToString());
+// customPriorityQueues.Enqueue(61);
+// Console.WriteLine(customPriorityQueues.ToString());
+// customPriorityQueues.Enqueue(62);
+// Console.WriteLine(customPriorityQueues.ToString());
+// customPriorityQueues.Enqueue(65);
+// Console.WriteLine(customPriorityQueues.ToString());
+// customPriorityQueues.Enqueue(0);
+// Console.WriteLine(customPriorityQueues.ToString());
+// customPriorityQueues.Enqueue(-1);
+// Console.WriteLine(customPriorityQueues.ToString());
+// customPriorityQueues.Enqueue(60);
+// Console.WriteLine(customPriorityQueues.ToString());
+// customPriorityQueues.Dequeue();
+// Console.WriteLine(customPriorityQueues.ToString());
+// customPriorityQueues.Dequeue();
+// Console.WriteLine(customPriorityQueues.ToString());
+// customPriorityQueues.Dequeue();
+// Console.WriteLine(customPriorityQueues.ToString());
+
+Queue<int> queue = new();
+queue.Enqueue(10);
+queue.Enqueue(20);
+queue.Enqueue(30);
+queue.Enqueue(40);
+queue.Enqueue(50);
+
+Console.WriteLine(QueuesPratice.GetQueueString(queue));
+QueuesPratice.QueueReverser(queue, 3);
+Console.WriteLine(QueuesPratice.GetQueueString(queue));
 
 #endregion

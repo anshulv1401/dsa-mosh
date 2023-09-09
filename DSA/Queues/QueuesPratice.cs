@@ -3,7 +3,7 @@ namespace DSA.Queues
     class QueuesPratice
     {
 
-        public string ReverseQueue(Queue<int> queue)
+        public static string ReverseQueue(Queue<int> queue)
         {
             //using only
             //add
@@ -17,6 +17,26 @@ namespace DSA.Queues
                 queue.Enqueue(stack.Pop());
 
             return string.Join(',', queue);
+        }
+
+        // Given an integer K and a queue of integers, write code to reverse the order of the first K elements of the queue.
+        // Using 1 stack and without using adding queue
+        public static void QueueReverser(Queue<int> queue, int k)
+        {
+            Stack<int> tempStack = new();
+            for (int i = 0; i < k; i++)
+                tempStack.Push(queue.Dequeue());
+
+            while (tempStack.Count > 0)
+                queue.Enqueue(tempStack.Pop());
+
+            for (int i = 0; i < queue.Count - k; i++)
+                queue.Enqueue(queue.Dequeue());
+        }
+
+        public static string GetQueueString(Queue<int> queue)
+        {
+            return string.Join(",", queue);
         }
     }
 }

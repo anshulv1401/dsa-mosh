@@ -2,6 +2,7 @@ using System.Text;
 
 namespace DSA.Stacks
 {
+    // Implement two stacks in one array
     public class Custom2StackWith1Array
     {
         private int[] stack;
