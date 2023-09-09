@@ -286,16 +286,48 @@ using DSA.Stacks;
 // Console.WriteLine(QueuesPratice.GetQueueString(queue));
 
 
-var customQueueLl = new CustomQueueLinkedList();
-customQueueLl.Enqueue(10);
-customQueueLl.Enqueue(20);
-customQueueLl.Enqueue(30);
-customQueueLl.Enqueue(40);
-Console.WriteLine(customQueueLl.ToString());
-Console.WriteLine(customQueueLl.Dequeue());
-Console.WriteLine(customQueueLl.Peek());
-Console.WriteLine(customQueueLl.ToString());
-Console.WriteLine(customQueueLl.IsEmpty());
-Console.WriteLine(customQueueLl.Size);
+// var customQueueLl = new CustomQueueLinkedList();
+// customQueueLl.Enqueue(10);
+// customQueueLl.Enqueue(20);
+// customQueueLl.Enqueue(30);
+// customQueueLl.Enqueue(40);
+// Console.WriteLine(customQueueLl.ToString());
+// Console.WriteLine(customQueueLl.Dequeue());
+// Console.WriteLine(customQueueLl.Peek());
+// Console.WriteLine(customQueueLl.ToString());
+// Console.WriteLine(customQueueLl.IsEmpty());
+// Console.WriteLine(customQueueLl.Size);
+
+
+var customStackWith2Queue = new CustomStackWith2Queue();
+customStackWith2Queue.Push(10);
+customStackWith2Queue.Push(20);
+customStackWith2Queue.Push(30);
+customStackWith2Queue.Push(40);
+Console.WriteLine(customStackWith2Queue.ToString());
+Console.WriteLine(customStackWith2Queue.Pop());
+Console.WriteLine(customStackWith2Queue.Peek());
+Console.WriteLine(customStackWith2Queue.ToString());
+Console.WriteLine(customStackWith2Queue.IsEmpty());
+Console.WriteLine(customStackWith2Queue.Size());
+Console.WriteLine(customStackWith2Queue.Pop());
+Console.WriteLine(customStackWith2Queue.Pop());
+Console.WriteLine(customStackWith2Queue.Pop());
+
+
+var customStackWith1Queue = new CustomStackWith1Queue();
+customStackWith1Queue.Push(10);
+customStackWith1Queue.Push(20);
+customStackWith1Queue.Push(30);
+customStackWith1Queue.Push(40);
+Console.WriteLine(customStackWith1Queue.ToString());
+Console.WriteLine(customStackWith1Queue.Pop());
+Console.WriteLine(customStackWith1Queue.Peek());
+Console.WriteLine(customStackWith1Queue.ToString());
+Console.WriteLine(customStackWith1Queue.IsEmpty());
+Console.WriteLine(customStackWith1Queue.Size());
+Console.WriteLine(customStackWith1Queue.Pop());
+Console.WriteLine(customStackWith1Queue.Pop());
+Console.WriteLine(customStackWith1Queue.Pop());
 
 #endregion
