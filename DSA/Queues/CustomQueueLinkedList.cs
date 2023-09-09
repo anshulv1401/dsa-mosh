@@ -43,22 +43,11 @@ namespace DSA.Queues
             if (first == null)
                 throw new InvalidOperationException();
 
-            int value;
-            if (first.Next == null)
-            {
-                value = first.Value;
-                first = last = null;
-                Size = 0;
-                return value;
-            }
+            int value = first.Value;
+            first = first.Next;
 
-            Node it = first;
-            while (it.Next.Next != null)
-                it = it.Next;
-
-            value = it.Next.Value;
-            it.Next = null;
-            last = it;
+            if (first == null)
+                last = null;
             Size--;
             return value;
         }
@@ -69,7 +58,7 @@ namespace DSA.Queues
             if (IsEmpty())
                 throw new InvalidOperationException();
 
-            return last.Value;
+            return first.Value;
         }
 
 
