@@ -274,15 +274,28 @@ using DSA.Stacks;
 // Console.WriteLine(QueuesPratice.GetQueueString(queue));
 
 
-Queue<int> queue = new();
-queue.Enqueue(10);
-queue.Enqueue(20);
-queue.Enqueue(30);
-queue.Enqueue(40);
-queue.Enqueue(50);
+// Queue<int> queue = new();
+// queue.Enqueue(10);
+// queue.Enqueue(20);
+// queue.Enqueue(30);
+// queue.Enqueue(40);
+// queue.Enqueue(50);
 
-Console.WriteLine(QueuesPratice.GetQueueString(queue));
-QueuesPratice.ReverseQueueWithRecursion(queue);
-Console.WriteLine(QueuesPratice.GetQueueString(queue));
+// Console.WriteLine(QueuesPratice.GetQueueString(queue));
+// QueuesPratice.ReverseQueueWithRecursion(queue);
+// Console.WriteLine(QueuesPratice.GetQueueString(queue));
+
+
+var customQueueLl = new CustomQueueLinkedList();
+customQueueLl.Enqueue(10);
+customQueueLl.Enqueue(20);
+customQueueLl.Enqueue(30);
+customQueueLl.Enqueue(40);
+Console.WriteLine(customQueueLl.ToString());
+Console.WriteLine(customQueueLl.Dequeue());
+Console.WriteLine(customQueueLl.Peek());
+Console.WriteLine(customQueueLl.ToString());
+Console.WriteLine(customQueueLl.IsEmpty());
+Console.WriteLine(customQueueLl.Size);
 
 #endregion
