@@ -262,6 +262,18 @@ using DSA.Stacks;
 // customPriorityQueues.Dequeue();
 // Console.WriteLine(customPriorityQueues.ToString());
 
+// Queue<int> queue = new();
+// queue.Enqueue(10);
+// queue.Enqueue(20);
+// queue.Enqueue(30);
+// queue.Enqueue(40);
+// queue.Enqueue(50);
+
+// Console.WriteLine(QueuesPratice.GetQueueString(queue));
+// QueuesPratice.QueueReverser(queue, 3);
+// Console.WriteLine(QueuesPratice.GetQueueString(queue));
+
+
 Queue<int> queue = new();
 queue.Enqueue(10);
 queue.Enqueue(20);
@@ -270,7 +282,7 @@ queue.Enqueue(40);
 queue.Enqueue(50);
 
 Console.WriteLine(QueuesPratice.GetQueueString(queue));
-QueuesPratice.QueueReverser(queue, 3);
+QueuesPratice.ReverseQueueWithRecursion(queue);
 Console.WriteLine(QueuesPratice.GetQueueString(queue));
 
 #endregion

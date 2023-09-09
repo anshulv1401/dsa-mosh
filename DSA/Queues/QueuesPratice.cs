@@ -34,6 +34,16 @@ namespace DSA.Queues
                 queue.Enqueue(queue.Dequeue());
         }
 
+        public static void ReverseQueueWithRecursion(Queue<int> queue)
+        {
+            if (queue.Count == 0)
+                return;
+
+            int first = queue.Dequeue();
+            ReverseQueue(queue);
+            queue.Enqueue(first);
+        }
+
         public static string GetQueueString(Queue<int> queue)
         {
             return string.Join(",", queue);
