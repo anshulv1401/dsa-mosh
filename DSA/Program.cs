@@ -336,8 +336,27 @@ using DSA.Stacks;
 
 #region HashTables
 
-DictionaryPratice.DemoDisctionary();
-Console.WriteLine(DictionaryPratice.FirstNonRepeatedCharacter("a green apple"));
-Console.WriteLine(DictionaryPratice.FirstRepeatedCharacter("green apple"));
+// DictionaryPratice.DemoDisctionary();
+// Console.WriteLine(DictionaryPratice.FirstNonRepeatedCharacter("a green apple"));
+// Console.WriteLine(DictionaryPratice.FirstRepeatedCharacter("green apple"));
+
+var customHashTable = new CustomHashTable(10);
+
+customHashTable.Put(1, "Hello1");
+customHashTable.Put(2, "Hello2");
+customHashTable.Put(3, "Hello3");
+customHashTable.Put(4, "Hello4");
+customHashTable.Put(5, "Hello5");
+customHashTable.Put(15, "Hello15");
+customHashTable.Put(0, "Hello0");
+customHashTable.Put(-1, "Hello-1");
+// customHashTable.Put(-1, "Hello-1");
+customHashTable.PrintHashTable();
+Console.WriteLine(customHashTable.Get(15));
+Console.WriteLine(customHashTable.Get(-1));
+Console.WriteLine(customHashTable.Get(0));
+Console.WriteLine(customHashTable.Get(6));
+customHashTable.Remove(15);
+customHashTable.PrintHashTable();
 
 #endregion
