@@ -1,4 +1,4 @@
-﻿namespace DSA.Arrays
+﻿namespace DSA.Part1.Arrays
 {
     public class CustomArray
     {

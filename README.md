@@ -65,6 +65,8 @@ Complixity all O(1)
 
 ## Hash Tables (FIFO)
 
+- To Store key/value pairs
+- Insert, remove, loolup run in O(1)
 - Spell checkers
 - Dictionaries
 - Compilers

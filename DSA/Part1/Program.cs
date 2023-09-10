@@ -1,9 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //using DSA;
-using DSA.HashTables;
-using DSA.LinkedList;
-using DSA.Queues;
-using DSA.Stacks;
+using DSA.Part1.HashTables;
+using DSA.Part1.LinkedList;
+using DSA.Part1.Queues;
+using DSA.Part1.Stacks;
 
 #region Arrays
 

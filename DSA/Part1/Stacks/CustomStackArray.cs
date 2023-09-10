@@ -1,19 +1,15 @@
 using System.Text;
 
-namespace DSA.Stacks
+namespace DSA.Part1.Stacks
 {
-    // Design a stack that supports push, pop and retrieving the minimum value in constant time.
-    public class CustomMinStack
+    public class CustomStackArray
     {
-        private readonly int[] stack;
-        private readonly int[] minStack;
+        private int[] stack;
         int lastIndex = -1;
-        int lastMinIndex = -1;
 
-        public CustomMinStack()
+        public CustomStackArray()
         {
             stack = new int[10];
-            minStack = new int[10];
         }
         //Push
 
@@ -22,11 +18,6 @@ namespace DSA.Stacks
             if (lastIndex == stack.Length - 1)
                 throw new StackOverflowException();
             stack[++lastIndex] = item;
-
-            if (lastMinIndex == -1 || minStack[lastMinIndex] > item)
-            {
-                minStack[++lastMinIndex] = item;
-            }
         }
 
         //Pop
@@ -36,10 +27,6 @@ namespace DSA.Stacks
                 throw new IndexOutOfRangeException();
 
             int lastItem = stack[lastIndex--];
-
-            if (minStack[lastMinIndex] == lastItem)
-                --lastMinIndex;
-
             return lastItem;
         }
 
@@ -60,14 +47,6 @@ namespace DSA.Stacks
             return lastIndex == -1;
         }
 
-
-        //IsEmpty
-        public int Min()
-        {
-            if (lastIndex == -1)
-                throw new IndexOutOfRangeException();
-            return minStack[lastMinIndex];
-        }
         public override string ToString()
         {
             var array = new int[lastIndex + 1];

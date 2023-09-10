@@ -1,4 +1,4 @@
-namespace DSA.Queues
+namespace DSA.Part1.Queues
 {
     class CustomStackWith2Queue
     {

@@ -1,7 +1,7 @@
 using System.Drawing;
 using System.Text;
 
-namespace DSA.Queues
+namespace DSA.Part1.Queues
 {
     class CustomQueueLinkedList
     {

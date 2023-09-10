@@ -1,4 +1,4 @@
-namespace DSA.HashTables
+namespace DSA.Part1.HashTables
 {
 
     public class DictionaryPratice

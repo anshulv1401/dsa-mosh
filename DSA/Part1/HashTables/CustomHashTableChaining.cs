@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace DSA.HashTables
+namespace DSA.Part1.HashTables
 {
     //HashTable
     //Collisions chaining

@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace DSA.Stacks
+namespace DSA.Part1.Stacks
 {
     public class CustomStackLinkedList
     {

@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace DSA.LinkedList
+namespace DSA.Part1.LinkedList
 {
     class CustomLinkedList<T> where T : struct
     {

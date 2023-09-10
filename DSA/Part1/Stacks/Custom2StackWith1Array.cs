@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace DSA.Stacks
+namespace DSA.Part1.Stacks
 {
     // Implement two stacks in one array
     public class Custom2StackWith1Array
