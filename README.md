@@ -91,6 +91,6 @@ Solution
 
 - Chaining: Using linkedlist in place of value itself.
 - Open addressing: Finding a new address for the 2nd value
-  - Linear Probing: hash(key) + i % table_size. Keep going to the next index until we find an empty slot. . Problem is clusters
+  - Linear Probing: hash(key) + i % table_size. Keep going to the next index until we find an empty slot. Problem is clusters
   - Quadratic Probing: hash(key) + i^2 % table_size. Less clusters, but could end up in infinite loop even if you have empty slots.
   - Double Hashing: hash(key) + i \* hash2 % table_size. We use separate independent hash function to calculate the number of steps.

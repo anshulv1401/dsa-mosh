@@ -5,11 +5,11 @@ namespace DSA.HashTables
     //HashTable
     //Collisions chaining
     //LinkedList<KeyValuePair<int, string>>
-    public class CustomHashTable
+    public class CustomHashTableChaining
     {
         readonly LinkedList<KeyValuePair<int, string>>[] map;
 
-        public CustomHashTable(int size)
+        public CustomHashTableChaining(int size)
         {
             map = new LinkedList<KeyValuePair<int, string>>[size];
         }
