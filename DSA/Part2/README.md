@@ -17,3 +17,9 @@ Binary Search Tree: `left < Node < Right`
 - Deletion O(log n)
 
 Better then array and linkedlist generally
+
+- Depth = Number of edges?
+
+- Height = Longest path to the leef = 1 + max(height(L), height(R)) (could use post order traversal to calculate height of the tree)
+
+- Note : height of leefs is zero

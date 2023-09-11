@@ -1,7 +1,7 @@
 namespace DSA.Part1.BinaryTrees
 {
 
-    public class BinarySearchTree
+    public class BinaryTree
     {
         public Node root;
 
@@ -140,26 +140,28 @@ namespace DSA.Part1.BinaryTrees
             return 1 + Math.Max(Height(root.leftChild), Height(root.rightChild));
         }
 
-        //O(log n)
         public int FindMin()
         {
+            return FindMin(root);
+        }
+
+        private int FindMin(Node root)
+        {
             if (root == null)
-                throw new InvalidOperationException();
+                return int.MaxValue;
 
-            var current = root;
+            if (IsLeef(root))
+                return root.val;
 
-            while (current.leftChild != null)
-            {
-                current = current.leftChild;
-            }
 
-            return current.val;
+            int leftMin = FindMin(root.leftChild);
+            int rightMin = FindMin(root.rightChild);
+            return Math.Min(root.val, Math.Min(leftMin, rightMin));
         }
 
         private bool IsLeef(Node node)
         {
             return root.leftChild == null && root.rightChild == null;
         }
-
     }
 }
