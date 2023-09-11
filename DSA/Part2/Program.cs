@@ -36,6 +36,8 @@ Console.WriteLine("Is 20 available? " + bt1.Find(20));
 Console.WriteLine("Is 50 available? " + bt1.Find(50));
 Console.WriteLine("height Of the Tree " + bt1.Height());
 Console.WriteLine("Min Value in the Tree " + bt1.FindMin());
-Console.WriteLine("Is BST equals BT " + bt1.TreeEquals(null));
+Console.WriteLine("Is BT1 equals BT2 " + bt1.TreeEquals(bt2.root));
+Console.WriteLine("Is BST " + bt1.IsBST());
+Console.WriteLine("Is BST " + bt2.IsBST());
 
 #endregion

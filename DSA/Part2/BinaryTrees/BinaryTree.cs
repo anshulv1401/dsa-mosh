@@ -184,6 +184,7 @@ namespace DSA.Part1.BinaryTrees
             return TreeEquals(tree1.leftChild, tree2.leftChild) && TreeEquals(tree1.rightChild, tree2.rightChild);
         }
 
+        //Pre order
         private bool TreeEquals2(Node tree1, Node tree2)
         {
 
@@ -196,6 +197,20 @@ namespace DSA.Part1.BinaryTrees
                 && TreeEquals(tree1.rightChild, tree2.rightChild);
 
             return false;
+        }
+
+        public bool IsBST()
+        {
+            return IsBST(root, int.MaxValue, int.MinValue);
+        }
+
+        private bool IsBST(Node root, int max, int min)
+        {
+            if (root == null)
+                return true;
+
+            var isBST = max > root.val && root.val > min;
+            return isBST && IsBST(root.leftChild, root.val, min) && IsBST(root.rightChild, max, root.val);
         }
 
     }
