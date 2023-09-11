@@ -1,9 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //using DSA;
-using DSA.Part1.HashTables;
-using DSA.Part1.LinkedList;
-using DSA.Part1.Queues;
-using DSA.Part1.Stacks;
+// using DSA.Part1.HashTables;
+// using DSA.Part1.LinkedList;
+// using DSA.Part1.Queues;
+// using DSA.Part1.Stacks;
 
 #region Arrays
 
@@ -367,29 +367,29 @@ using DSA.Part1.Stacks;
 // Console.WriteLine(DictionaryPratice.TwoSum2(new int[] { 2, 7, 11, 15 }, 9));
 // Console.WriteLine(DictionaryPratice.TwoSum2(new int[] { 1, 7, 5, 9, 2, 12, 3, 3, 3, 3, 1, 7, 9, 7 }, 1234));
 
-var customHashTableLinearProbling = new CustomHashTableLinearProbling(10);
-customHashTableLinearProbling.Put(1, "Hello1");
-customHashTableLinearProbling.Put(2, "Hello2");
-customHashTableLinearProbling.Put(3, "Hello3");
-customHashTableLinearProbling.Put(4, "Hello4");
-customHashTableLinearProbling.Put(5, "Hello5");
-customHashTableLinearProbling.Put(15, "Hello15");
-customHashTableLinearProbling.Put(0, "Hello0");
-customHashTableLinearProbling.Put(-1, "Hello-1");
-// customHashTable.Put(-1, "Hello-1");
+// var customHashTableLinearProbling = new CustomHashTableLinearProbling(10);
+// customHashTableLinearProbling.Put(1, "Hello1");
+// customHashTableLinearProbling.Put(2, "Hello2");
+// customHashTableLinearProbling.Put(3, "Hello3");
+// customHashTableLinearProbling.Put(4, "Hello4");
+// customHashTableLinearProbling.Put(5, "Hello5");
+// customHashTableLinearProbling.Put(15, "Hello15");
+// customHashTableLinearProbling.Put(0, "Hello0");
+// customHashTableLinearProbling.Put(-1, "Hello-1");
+// // customHashTable.Put(-1, "Hello-1");
+// // customHashTableLinearProbling.PrintHashTable();
+// Console.WriteLine(customHashTableLinearProbling.Get(15));
+// Console.WriteLine(customHashTableLinearProbling.Get(-1));
+// Console.WriteLine(customHashTableLinearProbling.Get(0));
+// // Console.WriteLine(customHashTableLinearProbling.Get(6));
+// customHashTableLinearProbling.Remove(15);
 // customHashTableLinearProbling.PrintHashTable();
-Console.WriteLine(customHashTableLinearProbling.Get(15));
-Console.WriteLine(customHashTableLinearProbling.Get(-1));
-Console.WriteLine(customHashTableLinearProbling.Get(0));
-// Console.WriteLine(customHashTableLinearProbling.Get(6));
-customHashTableLinearProbling.Remove(15);
-customHashTableLinearProbling.PrintHashTable();
-customHashTableLinearProbling.Put(11, "Hello11");
-customHashTableLinearProbling.Put(12, "Hello12");
-customHashTableLinearProbling.Put(13, "Hello13");
-customHashTableLinearProbling.PrintHashTable();
-Console.WriteLine(customHashTableLinearProbling.Get(-1));
-Console.WriteLine(customHashTableLinearProbling.Get(0));
-// Console.WriteLine(customHashTableLinearProbling.Get(6));
+// customHashTableLinearProbling.Put(11, "Hello11");
+// customHashTableLinearProbling.Put(12, "Hello12");
+// customHashTableLinearProbling.Put(13, "Hello13");
+// customHashTableLinearProbling.PrintHashTable();
+// Console.WriteLine(customHashTableLinearProbling.Get(-1));
+// Console.WriteLine(customHashTableLinearProbling.Get(0));
+// // Console.WriteLine(customHashTableLinearProbling.Get(6));
 
 #endregion
