@@ -213,5 +213,27 @@ namespace DSA.Part1.BinaryTrees
             return isBST && IsBST(root.leftChild, root.val, min) && IsBST(root.rightChild, max, root.val);
         }
 
+        //Write all the node with distance 3 from the root
+        public List<int> NodesAtKDistance(int distance)
+        {
+            var list = new List<int>();
+            NodesAtKDistance(root, distance, list);
+            return list;
+        }
+
+        private static void NodesAtKDistance(Node root, int distance, List<int> result)
+        {
+            if (root == null)
+                return;
+
+            if (distance == 0)
+            {
+                result.Add(root.val);
+                return;
+            }
+
+            NodesAtKDistance(root.leftChild, distance - 1, result);
+            NodesAtKDistance(root.rightChild, distance - 1, result);
+        }
     }
 }
