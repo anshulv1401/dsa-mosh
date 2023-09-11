@@ -235,5 +235,15 @@ namespace DSA.Part1.BinaryTrees
             NodesAtKDistance(root.leftChild, distance - 1, result);
             NodesAtKDistance(root.rightChild, distance - 1, result);
         }
+
+
+        public void LevelOrderTraversal()
+        {
+            for (var i = 0; i <= Height(); i++)
+            {
+                foreach (var node in NodesAtKDistance(i))
+                    Console.WriteLine("->" + node);
+            }
+        }
     }
 }
