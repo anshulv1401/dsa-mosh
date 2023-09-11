@@ -17,17 +17,25 @@ Console.WriteLine("Is 50 available? " + bst.Find(50));
 Console.WriteLine("height Of the Tree " + bst.Height());
 Console.WriteLine("Min Value in the Tree " + bst.FindMin());
 
-var bt = new BinaryTree();
+var bt1 = new BinaryTree();
 
-bt.Insert(10);
-bt.Insert(40);
-bt.Insert(30);
-bt.Insert(20);
-bt.InOrderTraversal();
+bt1.Insert(10);
+bt1.Insert(40);
+bt1.Insert(30);
+bt1.Insert(20);
+
+var bt2 = new BinaryTree();
+
+bt2.Insert(40);
+bt2.Insert(30);
+bt2.Insert(20);
+bt2.Insert(10);
+
 Console.WriteLine();
-Console.WriteLine("Is 20 available? " + bt.Find(20));
-Console.WriteLine("Is 50 available? " + bt.Find(50));
-Console.WriteLine("height Of the Tree " + bt.Height());
-Console.WriteLine("Min Value in the Tree " + bt.FindMin());
+Console.WriteLine("Is 20 available? " + bt1.Find(20));
+Console.WriteLine("Is 50 available? " + bt1.Find(50));
+Console.WriteLine("height Of the Tree " + bt1.Height());
+Console.WriteLine("Min Value in the Tree " + bt1.FindMin());
+Console.WriteLine("Is BST equals BT " + bt1.TreeEquals(null));
 
 #endregion

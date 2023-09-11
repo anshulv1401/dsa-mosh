@@ -163,5 +163,40 @@ namespace DSA.Part1.BinaryTrees
         {
             return root.leftChild == null && root.rightChild == null;
         }
+
+        public bool TreeEquals(Node treeRoot)
+        {
+            return TreeEquals(treeRoot, root);
+        }
+
+        private bool TreeEquals(Node tree1, Node tree2)
+        {
+
+            if (tree1 == null && tree2 != null || tree2 == null && tree1 != null)
+                return false;
+
+            if (tree1 == null && tree2 == null)
+                return true;
+
+            if (tree1 != null && tree2 != null)
+                return tree1.val == tree2.val;
+
+            return TreeEquals(tree1.leftChild, tree2.leftChild) && TreeEquals(tree1.rightChild, tree2.rightChild);
+        }
+
+        private bool TreeEquals2(Node tree1, Node tree2)
+        {
+
+            if (tree1 == null && tree2 == null)
+                return true;
+
+            if (tree1 != null && tree2 != null)
+                return tree1.val == tree2.val
+                && TreeEquals(tree1.leftChild, tree2.leftChild)
+                && TreeEquals(tree1.rightChild, tree2.rightChild);
+
+            return false;
+        }
+
     }
 }
