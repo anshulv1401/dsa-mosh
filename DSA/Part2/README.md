@@ -10,6 +10,14 @@
 
 Binary Tree: A Tree where all its nodes can have atmost 2 childers
 
+- Traversals
+  - Breadth first
+    - level-order
+  - Depth first
+    - Pre-order
+    - In-order
+    - Post-order
+
 Binary Search Tree: `left < Node < Right`
 
 - Search O(log n)
@@ -18,8 +26,10 @@ Binary Search Tree: `left < Node < Right`
 
 Better then array and linkedlist generally
 
-- Depth = Number of edges?
-
+- Depth = Number of edges
 - Height = Longest path to the leef = 1 + max(height(L), height(R)) (could use post order traversal to calculate height of the tree)
-
-- Note : height of leefs is zero
+- Note :
+  - Height of leafs is zero
+  - Height of a tree is the height of its root node
+  - Depth of root node is zero
+  - Depth of any node is the number of edges from root to itself
