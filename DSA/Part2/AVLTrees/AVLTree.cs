@@ -12,6 +12,7 @@ namespace DSA.Part1.AVLTrees
             root = Insert(root, value);
         }
 
+
         private AVLNode Insert(AVLNode root, int value)
         {
             if (root == null)
@@ -22,18 +23,75 @@ namespace DSA.Part1.AVLTrees
             else
                 root.rightChild = Insert(root.rightChild, value);
 
-            root.height = Math.Max(Height(root.leftChild), Height(root.rightChild)) + 1;
+            SetHeight(root);
+            return Balance(root);
+        }
 
-            // BalanceFactor = height(L) - height(R)
-            // if bf > 1 --> left heavy --> right rotation
-            // if bf < -1 --> right heavy --> left rotation
 
+        // BalanceFactor = height(L) - height(R)
+        // if bf > 1 --> left heavy --> right rotation
+        // if bf < -1 --> right heavy --> left rotation
+
+        //10
+        //  20
+        //      30
+        //leftRotate(10)
+
+        //10
+        //  20
+        //30
+        //rightRotate(30)
+        //leftRotate(10)
+
+        //      10
+        //  20
+        //30
+        //rightRotate(10)
+
+        //  10
+        //20
+        //  30
+        //leftRotate(30)
+        //rightRotate(10)
+        private AVLNode Balance(AVLNode root)
+        {
             if (IsLeftHeavy(root))
-                Console.WriteLine("Inserting {0}, {1} Root is left heavy", value, root.val);
+            {
+                if (BalanceFactor(root.leftChild) < 0)
+                    root.leftChild = RotateLeft(root.leftChild);
+                return RotateRight(root);
+            }
             else if (IsRightHeavy(root))
-                Console.WriteLine("Inserting {0}, {1} Root is right heavy", value, root.val);
-
+            {
+                if (BalanceFactor(root.rightChild) > 0)
+                    root.rightChild = RotateRight(root.rightChild);
+                return RotateLeft(root);
+            }
             return root;
+        }
+
+        //Rotate left
+        private AVLNode RotateLeft(AVLNode root)
+        {
+            var newRoot = root.rightChild;
+            root.rightChild = newRoot.leftChild;
+            newRoot.leftChild = root;
+
+            SetHeight(root);
+            SetHeight(newRoot);
+            return newRoot;
+        }
+
+        //Rotate right
+        private AVLNode RotateRight(AVLNode root)
+        {
+            var newRoot = root.leftChild;
+            root.leftChild = newRoot.rightChild;
+            newRoot.rightChild = root;
+
+            SetHeight(root);
+            SetHeight(newRoot);
+            return newRoot;
         }
 
         private bool IsLeftHeavy(AVLNode root)
@@ -53,6 +111,10 @@ namespace DSA.Part1.AVLTrees
             return Height(root.leftChild) - Height(root.rightChild);
         }
 
+        private void SetHeight(AVLNode root)
+        {
+            root.height = Math.Max(Height(root.leftChild), Height(root.rightChild)) + 1;
+        }
 
         private int Height(AVLNode node)
         {
