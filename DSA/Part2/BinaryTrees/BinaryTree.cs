@@ -134,7 +134,7 @@ namespace DSA.Part1.BinaryTrees
             if (root == null)
                 return -1;
 
-            if (IsLeef(root))
+            if (IsLeaf(root))
                 return 0;
 
             return 1 + Math.Max(Height(root.leftChild), Height(root.rightChild));
@@ -150,7 +150,7 @@ namespace DSA.Part1.BinaryTrees
             if (root == null)
                 return int.MaxValue;
 
-            if (IsLeef(root))
+            if (IsLeaf(root))
                 return root.val;
 
 
@@ -159,9 +159,9 @@ namespace DSA.Part1.BinaryTrees
             return Math.Min(root.val, Math.Min(leftMin, rightMin));
         }
 
-        private bool IsLeef(Node node)
+        private bool IsLeaf(Node node)
         {
-            return root.leftChild == null && root.rightChild == null;
+            return node.leftChild == null && node.rightChild == null;
         }
 
         public bool TreeEquals(Node treeRoot)
@@ -244,6 +244,119 @@ namespace DSA.Part1.BinaryTrees
                 foreach (var node in NodesAtKDistance(i))
                     Console.WriteLine("->" + node);
             }
+        }
+
+        public void LevelOrderTraversal2()
+        {
+            var dict = new Dictionary<int, List<int>>();
+            LevelOrderTraversal2(root, 0, dict);
+            foreach (var height in dict)
+            {
+                foreach (var nodeVal in height.Value)
+                    Console.Write("->" + nodeVal);
+                Console.WriteLine();
+            }
+        }
+
+        private void LevelOrderTraversal2(Node root, int height, Dictionary<int, List<int>> dict)
+        {
+            if (root == null)
+                return;
+
+            if (dict.ContainsKey(height))
+                dict[height].Add(root.val);
+            else
+                dict.Add(height, new List<int>() { root.val });
+
+            LevelOrderTraversal2(root.leftChild, height + 1, dict);
+            LevelOrderTraversal2(root.rightChild, height + 1, dict);
+        }
+
+        public int Size()
+        {
+            return Size(root);
+        }
+
+        private int Size(Node root)
+        {
+            if (root == null)
+                return 0;
+
+            return 1 + Size(root.leftChild) + Size(root.leftChild);
+        }
+
+        public int CountLeaves()
+        {
+            return CountLeaves(root);
+        }
+
+        private int CountLeaves(Node root)
+        {
+            if (root == null)
+                return 0;
+
+            if (IsLeaf(root))
+                return 1;
+
+            return CountLeaves(root.leftChild) + CountLeaves(root.rightChild);
+        }
+
+        public bool Contains(int value)
+        {
+            return Contains(root, value);
+        }
+
+        private bool Contains(Node root, int value)
+        {
+            if (root == null)
+                return false;
+
+            if (root.val == value)
+                return true;
+
+            return Contains(root.leftChild, value) || Contains(root.rightChild, value);
+        }
+
+        public bool AreSibling(int value1, int value2)
+        {
+            return AreSibling(root, value1, value2);
+        }
+
+        private bool AreSibling(Node root, int value1, int value2)
+        {
+            if (root == null || root.leftChild == null || root.rightChild == null)
+                return false;
+
+            if (root.leftChild.val == value1 && root.rightChild.val == value2
+            || root.leftChild.val == value2 && root.rightChild.val == value1)
+                return true;
+
+            return AreSibling(root.leftChild, value1, value2) || AreSibling(root.rightChild, value1, value2);
+        }
+
+        public List<int> GetAncestors(int value)
+        {
+            List<int> listOfAncestors = new();
+            var foundNode = FindNode(root, value, listOfAncestors);
+            if (!foundNode)
+                throw new InvalidOperationException("Node not found");
+            return listOfAncestors;
+        }
+
+        private static bool FindNode(Node root, int value, List<int> listOfAncestors)
+        {
+            if (root == null)
+                return false;
+
+            if (root.val == value)
+                return true;
+
+            bool found = FindNode(root.leftChild, value, listOfAncestors) || FindNode(root.rightChild, value, listOfAncestors);
+
+            if (found)
+                listOfAncestors.Add(root.val);
+
+            return found;
         }
     }
 }

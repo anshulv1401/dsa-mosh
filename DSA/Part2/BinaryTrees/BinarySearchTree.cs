@@ -134,7 +134,7 @@ namespace DSA.Part1.BinaryTrees
             if (root == null)
                 return -1;
 
-            if (IsLeef(root))
+            if (IsLeaf(root))
                 return 0;
 
             return 1 + Math.Max(Height(root.leftChild), Height(root.rightChild));
@@ -156,10 +156,26 @@ namespace DSA.Part1.BinaryTrees
             return current.val;
         }
 
-        private bool IsLeef(Node node)
+        private bool IsLeaf(Node node)
         {
-            return root.leftChild == null && root.rightChild == null;
+            return node.leftChild == null && node.rightChild == null;
         }
+
+        public int FindMax()
+        {
+            if (root == null)
+                throw new InvalidOperationException();
+            return FindMax(root);
+        }
+
+        private int FindMax(Node root)
+        {
+            if (root.rightChild == null)
+                return root.val;
+
+            return FindMax(root.rightChild);
+        }
+
 
     }
 }
