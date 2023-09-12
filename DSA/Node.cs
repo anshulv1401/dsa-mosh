@@ -1,4 +1,4 @@
-namespace DSA.Part1
+namespace DSA
 {
     public class Node
     {

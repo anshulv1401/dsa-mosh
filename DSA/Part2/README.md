@@ -33,3 +33,22 @@ Better then array and linkedlist generally
   - Height of a tree is the height of its root node
   - Depth of root node is zero
   - Depth of any node is the number of edges from root to itself
+
+## Balanced and unbalanced
+
+Balanced Trees: If the difference between the height of the left and right subtress for every node is 0 or 1
+
+Self Balancing tress
+
+- AVL Tress (Adelson-velsky and landis)
+- Red-black trees
+- B-trees
+- Splay Trees
+- 2-3 Trees
+
+Rotations
+
+- LL
+- RR
+- LR
+- RL
