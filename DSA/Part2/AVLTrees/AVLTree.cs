@@ -12,24 +12,6 @@ namespace DSA.Part1.AVLTrees
             root = Insert(root, value);
         }
 
-        // private void Insert(AVLNode root, int value)
-        // {
-        //     if (root.val > value)
-        //     {
-        //         if (root.leftChild == null)
-        //             root.leftChild = new AVLNode(value);
-        //         else
-        //             Insert(root.leftChild, value);
-        //     }
-        //     else
-        //     {
-        //         if (root.rightChild == null)
-        //             root.rightChild = new AVLNode(value);
-        //         else
-        //             Insert(root.rightChild, value);
-        //     }
-        // }
-
         private AVLNode Insert(AVLNode root, int value)
         {
             if (root == null)
@@ -40,8 +22,41 @@ namespace DSA.Part1.AVLTrees
             else
                 root.rightChild = Insert(root.rightChild, value);
 
-            root.height = Math.Max(root.leftChild?.height ?? 0, root.rightChild?.height ?? 0) + 1;
+            root.height = Math.Max(Height(root.leftChild), Height(root.rightChild)) + 1;
+
+            // BalanceFactor = height(L) - height(R)
+            // if bf > 1 --> left heavy --> right rotation
+            // if bf < -1 --> right heavy --> left rotation
+
+            if (IsLeftHeavy(root))
+                Console.WriteLine("Inserting {0}, {1} Root is left heavy", value, root.val);
+            else if (IsRightHeavy(root))
+                Console.WriteLine("Inserting {0}, {1} Root is right heavy", value, root.val);
+
             return root;
+        }
+
+        private bool IsLeftHeavy(AVLNode root)
+        {
+            return BalanceFactor(root) > 1;
+        }
+
+        private bool IsRightHeavy(AVLNode root)
+        {
+            return BalanceFactor(root) < -1;
+        }
+
+        private int BalanceFactor(AVLNode root)
+        {
+            if (root == null)
+                return 0;
+            return Height(root.leftChild) - Height(root.rightChild);
+        }
+
+
+        private int Height(AVLNode node)
+        {
+            return node?.height ?? -1;
         }
 
         public void LevelOrderTraversal()

@@ -84,16 +84,20 @@
 using DSA.Part1.AVLTrees;
 
 var aVLTree = new AVLTree();
-aVLTree.Insert(7);
-aVLTree.Insert(4);
-aVLTree.Insert(9);
-aVLTree.Insert(1);
-aVLTree.Insert(6);
-aVLTree.Insert(8);
+// aVLTree.Insert(7);
+// aVLTree.Insert(4);
+// aVLTree.Insert(9);
+// aVLTree.Insert(1);
+// aVLTree.Insert(6);
+// aVLTree.Insert(8);
+// aVLTree.Insert(10);
+// aVLTree.Insert(14);
+// aVLTree.Insert(15);
+// aVLTree.Insert(13);
 aVLTree.Insert(10);
-aVLTree.Insert(14);
-aVLTree.Insert(15);
-aVLTree.Insert(13);
+aVLTree.Insert(20);
+aVLTree.Insert(30);
+// aVLTree.Insert(40);
 aVLTree.LevelOrderTraversal();
 
 #endregion
