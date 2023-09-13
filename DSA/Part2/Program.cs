@@ -82,22 +82,47 @@
 #region AVLTrees
 
 using DSA.Part1.AVLTrees;
+using DSA.Part1.BinaryTrees;
 
 var aVLTree = new AVLTree();
-// aVLTree.Insert(7);
-// aVLTree.Insert(4);
-// aVLTree.Insert(9);
-// aVLTree.Insert(1);
-// aVLTree.Insert(6);
-// aVLTree.Insert(8);
-// aVLTree.Insert(10);
-// aVLTree.Insert(14);
-// aVLTree.Insert(15);
-// aVLTree.Insert(13);
+aVLTree.Insert(7);
+aVLTree.Insert(4);
+aVLTree.Insert(9);
+aVLTree.Insert(1);
+aVLTree.Insert(6);
+aVLTree.Insert(8);
+aVLTree.Insert(10);
+aVLTree.Insert(14);
+aVLTree.Insert(15);
+aVLTree.Insert(13);
 aVLTree.Insert(10);
 aVLTree.Insert(20);
 aVLTree.Insert(30);
 // aVLTree.Insert(40);
 aVLTree.LevelOrderTraversal();
+
+var btBalanced = new BinaryTree();
+btBalanced.Insert(14);
+btBalanced.Insert(6);
+btBalanced.Insert(22);
+btBalanced.Insert(2);
+btBalanced.Insert(10);
+btBalanced.Insert(18);
+btBalanced.Insert(26);
+btBalanced.Insert(0);
+btBalanced.Insert(4);
+btBalanced.Insert(8);
+btBalanced.Insert(12);
+btBalanced.Insert(16);
+btBalanced.Insert(20);
+btBalanced.Insert(24);
+// btBalanced.Insert(3);
+btBalanced.Insert(28);
+btBalanced.LevelOrderTraversal2();
+
+Console.WriteLine("IsBalanced: " + btBalanced.IsBalanced());
+Console.WriteLine("IsBalanced2: " + btBalanced.IsBalanced2());
+Console.WriteLine("IsPerfect: " + btBalanced.IsPerfect());
+Console.WriteLine("IsPerfect2: " + btBalanced.IsPerfect2());
 
 #endregion

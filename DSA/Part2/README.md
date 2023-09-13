@@ -34,7 +34,7 @@ Better then array and linkedlist generally
   - Depth of root node is zero
   - Depth of any node is the number of edges from root to itself
 
-## Balanced and unbalanced
+## AVL Trees
 
 Balanced Trees: If the difference between the height of the left and right subtress for every node is 0 or 1
 
@@ -52,3 +52,10 @@ Rotations
 - RR
 - LR
 - RL
+
+BST
+
+- Average:O(log n)
+- worst: O(n)
+
+Self-balancing trees

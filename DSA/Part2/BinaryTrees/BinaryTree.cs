@@ -140,6 +140,87 @@ namespace DSA.Part1.BinaryTrees
             return 1 + Math.Max(Height(root.leftChild), Height(root.rightChild));
         }
 
+
+        public bool IsBalanced()
+        {
+            return IsBalanced(root);
+        }
+
+        //Naive approch. O(n^2) time complexity
+        public bool IsBalanced(Node root)
+        {
+            if (root == null)
+                return true;
+
+            var leftBf = Height(root.leftChild);
+            var rightBf = Height(root.rightChild);
+
+            if (Math.Abs(leftBf - rightBf) <= 1 && IsBalanced(root.leftChild) && IsBalanced(root.rightChild))
+                return true;
+            return false;
+        }
+
+        public bool IsBalanced2()
+        {
+            return IsBalanced2(root) != -1;
+        }
+
+        //Better approch. O(n) time complexity
+        public int IsBalanced2(Node root)
+        {
+            if (root == null)
+                return 0;
+
+            var leftHeight = IsBalanced2(root.leftChild);
+            if (leftHeight == -1)
+                return -1;
+
+            var rightHeight = IsBalanced2(root.rightChild);
+            if (rightHeight == -1)
+                return -1;
+
+            if (Math.Abs(leftHeight - rightHeight) <= 1)
+                return Math.Max(leftHeight, rightHeight) + 1;
+            return -1;
+        }
+
+        //A Binary tree is Perfect Binary Tree in which all internal nodes have two children and all leaves are at same level.
+        public bool IsPerfect()
+        {
+            Dictionary<int, int> dict = new Dictionary<int, int>();
+            LevelOrderTraversal3(root, 0, dict);
+            int expectedLevelSize = 1;
+            for (int height = 0; height < dict.Count; height++)
+            {
+                if (dict[height] != expectedLevelSize)
+                    return false;
+                else
+                    expectedLevelSize *= 2;
+            }
+            return true;
+        }
+
+        public void LevelOrderTraversal3(Node root, int height, Dictionary<int, int> dict)
+        {
+            if (root == null)
+                return;
+
+            if (!dict.ContainsKey(height))
+                dict.Add(height, 1);
+            else
+                dict[height]++;
+
+            LevelOrderTraversal3(root.leftChild, height + 1, dict);
+            LevelOrderTraversal3(root.rightChild, height + 1, dict);
+        }
+
+        //A Perfect Binary Tree of height h (where height is number of nodes on path from root to leaf) has 2h – 1 nodes.
+        public bool IsPerfect2()
+        {
+            return Size() == (Math.Pow(2, Height() + 1) - 1);
+        }
+
+
         public int FindMin()
         {
             return FindMin(root);
@@ -242,7 +323,8 @@ namespace DSA.Part1.BinaryTrees
             for (var i = 0; i <= Height(); i++)
             {
                 foreach (var node in NodesAtKDistance(i))
-                    Console.WriteLine("->" + node);
+                    Console.Write("->" + node);
+                Console.WriteLine("");
             }
         }
 
