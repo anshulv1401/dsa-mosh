@@ -81,8 +81,8 @@
 
 #region AVLTrees
 
-using DSA.Part1.AVLTrees;
-using DSA.Part1.BinaryTrees;
+using DSA.Part2.AVLTrees;
+using DSA.Part2.BinaryTrees;
 
 var aVLTree = new AVLTree();
 aVLTree.Insert(7);

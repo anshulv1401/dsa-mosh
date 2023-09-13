@@ -59,3 +59,28 @@ BST
 - worst: O(n)
 
 Self-balancing trees
+
+## Heaps
+
+A heap is a special type of tree with two perperties.
+
+- First: Every level except, potentially the last level is completely filled and Levels are filled from the left to the right
+  - This is called a complete tree: A complete binary tree is a special type of binary tree where all the levels of the tree are filled completely except the lowest level nodes which are filled from as left as possible.
+- Second: Every node is greater than or equal with childrem
+  - This is called Max Heap Property, where root node will have the highest value. In Min heaps root node will have the lowest value.
+
+Applications
+
+- Sorting (HeapSort)
+- Graph algorithms (shortest path)
+- Priority queues
+- Finding the Kth smallest/largest value
+- Height = h = log(n)
+- Insertion (bubbling Up): O(log n) = O(h)
+- Deletion: Only the root node can be deleted.
+  - Delete the root node
+  - Move last child to the root
+  - Bubble down the root node to its correct location by swapping to its larger child
+  - O(log n)
+- Find Maximum
+  - (Max heap): Return root. O(1)

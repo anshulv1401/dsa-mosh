@@ -1,6 +1,6 @@
 using DSA.Part2;
 
-namespace DSA.Part1.AVLTrees
+namespace DSA.Part2.AVLTrees
 {
 
     public class AVLTree

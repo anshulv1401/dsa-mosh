@@ -1,4 +1,4 @@
-namespace DSA.Part1.BinaryTrees
+namespace DSA.Part2.BinaryTrees
 {
 
     public class BinarySearchTree
