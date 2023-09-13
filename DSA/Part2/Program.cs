@@ -146,4 +146,6 @@ heap.PrintTree();
 Console.WriteLine(heap.Remove());
 heap.PrintTree();
 
+HeapPratice.SortArrayUsingHeap();
+
 #endregion
