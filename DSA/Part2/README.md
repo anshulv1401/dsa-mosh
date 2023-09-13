@@ -84,3 +84,7 @@ Applications
   - O(log n)
 - Find Maximum
   - (Max heap): Return root. O(1)
+
+leftChildIndex = `parentIndex * 2 + 1`
+rightChildIndex = `parentIndex * 2 + 2`
+parentIndex = (index-1)/2
