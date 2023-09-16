@@ -2,60 +2,6 @@ namespace DSA.Part2.Tries
 {
     public class TrieTree
     {
-        //Node
-        //  Value : Char
-        //  children: Node[26]
-        //  IsEndOfWord: boolean
-        public static int ALPHABET_SIZE = 26;
-        private class TrieNode
-        {
-            char value;
-            private readonly Dictionary<char, TrieNode> children;
-            public bool isEndOfWord;
-
-            public TrieNode(char value)
-            {
-                this.value = value;
-                children = new Dictionary<char, TrieNode>();
-                isEndOfWord = false;
-            }
-
-            public TrieNode GetChild(char key)
-            {
-                return children[key];
-            }
-
-            public bool HasChild(char key)
-            {
-                return children.ContainsKey(key);
-            }
-
-            public void AddChild(char key)
-            {
-                children.Add(key, new TrieNode(key));
-            }
-
-            public TrieNode[] GetChildren()
-            {
-                return children.Values.ToArray();
-            }
-
-            public bool HasChildren()
-            {
-                return children.Count != 0;
-            }
-
-            public void RemoveChild(char key)
-            {
-                children.Remove(key);
-            }
-
-            public override string ToString()
-            {
-                return "Value:" + value;
-            }
-        }
-
         readonly TrieNode rootNode = new(' ');
         public void Insert(string word)
         {
@@ -85,7 +31,6 @@ namespace DSA.Part2.Tries
             return current.isEndOfWord;
         }
 
-
         public void Remove(string word)
         {
             if (word == null)
@@ -93,6 +38,7 @@ namespace DSA.Part2.Tries
             Remove(rootNode, word, 0);
         }
 
+        //Post Order traversal
         private void Remove(TrieNode root, string word, int index)
         {
             if (index == word.Length)
@@ -106,34 +52,49 @@ namespace DSA.Part2.Tries
 
             var childNode = root.GetChild(word[index]);
             Remove(childNode, word, index + 1);
-            if (childNode.HasChildren() && !childNode.isEndOfWord)
-            {
+
+            if (!childNode.HasChildren() && !childNode.isEndOfWord)
                 root.RemoveChild(word[index]);
+        }
+
+        public List<string> FindWords(string prefix)
+        {
+            List<string> strings = new();
+
+            var prefixNode = FindLastNodeOf(prefix);
+            FindWords(prefixNode, prefix, strings);
+            return strings;
+        }
+
+        private void FindWords(TrieNode rootNode, string prefix, List<string> words)
+        {
+            if (rootNode == null)
+                return;
+
+            if (rootNode.isEndOfWord)
+                words.Add(prefix.Trim());
+
+
+            foreach (var child in rootNode.GetChildren())
+            {
+                FindWords(child, prefix + child.Value, words);
             }
         }
 
+        private TrieNode FindLastNodeOf(string prefix)
+        {
+            if (prefix == null)
+                return null;
 
-        // private void Remove(TrieNode node, string word, int index)
-        // {
-        //     if (!node.HasChild(word[index]))
-        //     {
-        //         Console.WriteLine(node.ToString());
-        //         return;
-        //     }
-
-        //     var nextCharNode = node.GetChild(word[index]);
-
-        //     if (word.Length - 1 == index)
-        //     {
-        //         nextCharNode.isEndOfWord = false;
-        //         Console.WriteLine(node.ToString());
-        //         return;
-        //     }
-
-        //     Remove(nextCharNode, word, index + 1);
-        //     Console.WriteLine(node.ToString());
-        // }
-
+            var current = rootNode;
+            foreach (var ch in prefix)
+            {
+                if (!current.HasChild(ch))
+                    return null;
+                current = current.GetChild(ch);
+            }
+            return current;
+        }
 
         public void Traverse()
         {

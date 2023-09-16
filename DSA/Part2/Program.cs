@@ -193,7 +193,9 @@ var trieTree = new TrieTree();
 // int chAccii = ch < 'a' ? ch + ('a' - 'A') : ch;
 // System.Console.WriteLine(chAccii);
 trieTree.Insert("Boy");
-trieTree.Insert("Bot");
+trieTree.Insert("Boys");
+trieTree.Insert("Boycot");
+trieTree.Insert("Boydance");
 trieTree.Insert("canada");
 // Console.WriteLine("Constain Boy: " + trieTree.Contains("Boy"));
 // Console.WriteLine("Constain canada: " + trieTree.Contains("canada"));
@@ -209,7 +211,8 @@ trieTree.Remove("Boy");
 Console.WriteLine("Constain Boy: " + trieTree.Contains("Boy"));
 
 
-
+var list = trieTree.FindWords("Boy");
+Console.WriteLine(string.Join(",", list));
 
 #endregion
 
