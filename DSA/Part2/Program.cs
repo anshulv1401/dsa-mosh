@@ -207,7 +207,7 @@ trieTree.Insert("canada");
 // trieTree.Traverse();
 
 Console.WriteLine("Contains Boy: " + trieTree.Contains("Boy"));
-// trieTree.Remove("Boy");
+trieTree.Remove("Boy");
 Console.WriteLine("Contains Boy: " + trieTree.Contains("Boy"));
 
 
@@ -220,6 +220,11 @@ Console.WriteLine("ContainsRecursively Boys: " + trieTree.ContainsRecursively("B
 Console.WriteLine("ContainsRecursively B: " + trieTree.ContainsRecursively("B"));
 Console.WriteLine("ContainsRecursively EmptyString: " + trieTree.ContainsRecursively(""));
 Console.WriteLine("ContainsRecursively null: " + trieTree.ContainsRecursively(null));
+
+Console.WriteLine("Count Words: " + trieTree.CountWords());
+
+
+Console.WriteLine("Longest Common Prefix: " + TrieTree.LongestCommonPrefix(new string[] { "card", "care" }));
 
 #endregion
 

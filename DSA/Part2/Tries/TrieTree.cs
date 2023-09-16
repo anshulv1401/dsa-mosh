@@ -2,7 +2,7 @@ namespace DSA.Part2.Tries
 {
     public class TrieTree
     {
-        readonly TrieNode rootNode = new(' ');
+        public readonly TrieNode rootNode = new(' ');
         public void Insert(string word)
         {
             TrieNode current = rootNode;
@@ -31,9 +31,57 @@ namespace DSA.Part2.Tries
             return current.isEndOfWord;
         }
 
-        // public int CountWords(){
+        public int CountWords()
+        {
+            return CountWords(rootNode);
+        }
 
-        // }
+        public int CountWords(TrieNode rootNode)
+        {
+            int count = rootNode.isEndOfWord ? 1 : 0;
+            foreach (var child in rootNode.GetChildren())
+            {
+                count += CountWords(child);
+            }
+            return count;
+        }
+
+        // We add these words to a trie and walk down
+        // the trie. If a node has more than one child,
+        // that's where these words deviate. Try this
+        // with "can", "canada", "care" and "cab". You'll
+        // see that these words deviate after "ca".
+        //
+        // So, we keep walking down the tree as long as
+        // the current node has only one child.
+        //
+        // One edge cases we need to count is when two
+        // words are in the same branch and don't deviate.
+        // For example "can" and "canada". In this case,
+        // we keep walking down to the end because every
+        // node (except the last node) has only one child.
+        // But the longest common prefix here should be
+        // "can", not "canada". So, we should find the
+        // shortest word in the list first. The maximum
+        // number of characters we can include in the
+        // prefix should be equal to the length of the
+        // shortest word.
+        public static string LongestCommonPrefix(string[] words)
+        {
+            TrieTree tries = new();
+            foreach (var word in words)
+                tries.Insert(word);
+
+            return LongestCommonPrefix(tries.rootNode);
+        }
+
+        private static string LongestCommonPrefix(TrieNode rootNode)
+        {
+            if (rootNode.GetChildren().Length != 1 || rootNode.isEndOfWord)
+                return rootNode.Value.ToString();
+
+            return rootNode.Value + LongestCommonPrefix(rootNode.GetChildren()[0]);
+        }
 
         public bool ContainsRecursively(string word)
         {
