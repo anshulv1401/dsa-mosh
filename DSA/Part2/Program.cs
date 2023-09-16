@@ -195,16 +195,21 @@ var trieTree = new TrieTree();
 trieTree.Insert("Boy");
 trieTree.Insert("Bot");
 trieTree.Insert("canada");
-Console.WriteLine("Constain Boy: " + trieTree.Contains("Boy"));
-Console.WriteLine("Constain BoR: " + trieTree.Contains("BoR"));
-Console.WriteLine("Constain can: " + trieTree.Contains("can"));
-Console.WriteLine("Constain canada: " + trieTree.Contains("canada"));
-Console.WriteLine("Constain Canada: " + trieTree.Contains("Canada"));
-Console.WriteLine("Constain Null: " + trieTree.Contains(null));
-Console.WriteLine("Constain Empty String: " + trieTree.Contains(""));
+// Console.WriteLine("Constain Boy: " + trieTree.Contains("Boy"));
+// Console.WriteLine("Constain canada: " + trieTree.Contains("canada"));
+// Console.WriteLine("Constain Canada: " + trieTree.Contains("Canada"));
+// Console.WriteLine("Constain Null: " + trieTree.Contains(null));
+// Console.WriteLine("Constain Empty String: " + trieTree.Contains(""));
 
-Console.WriteLine("Traversal");
-trieTree.Traverse();
+// Console.WriteLine("Traversal");
+// trieTree.Traverse();
+
+Console.WriteLine("Constain Boy: " + trieTree.Contains("Boy"));
+trieTree.Remove("Boy");
+Console.WriteLine("Constain Boy: " + trieTree.Contains("Boy"));
+
+
+
 
 #endregion
 

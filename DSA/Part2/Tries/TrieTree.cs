@@ -20,24 +20,34 @@ namespace DSA.Part2.Tries
                 isEndOfWord = false;
             }
 
-            public TrieNode GetChild(char ch)
+            public TrieNode GetChild(char key)
             {
-                return children[ch];
+                return children[key];
             }
 
-            public bool HasChild(char ch)
+            public bool HasChild(char key)
             {
-                return children.ContainsKey(ch);
+                return children.ContainsKey(key);
             }
 
-            public void AddChild(char ch)
+            public void AddChild(char key)
             {
-                children.Add(ch, new TrieNode(ch));
+                children.Add(key, new TrieNode(key));
             }
 
             public TrieNode[] GetChildren()
             {
                 return children.Values.ToArray();
+            }
+
+            public bool HasChildren()
+            {
+                return children.Count != 0;
+            }
+
+            public void RemoveChild(char key)
+            {
+                children.Remove(key);
             }
 
             public override string ToString()
@@ -75,6 +85,56 @@ namespace DSA.Part2.Tries
             return current.isEndOfWord;
         }
 
+
+        public void Remove(string word)
+        {
+            if (word == null)
+                return;
+            Remove(rootNode, word, 0);
+        }
+
+        private void Remove(TrieNode root, string word, int index)
+        {
+            if (index == word.Length)
+            {
+                root.isEndOfWord = false;
+                return;
+            }
+
+            if (!root.HasChild(word[index]))
+                return;
+
+            var childNode = root.GetChild(word[index]);
+            Remove(childNode, word, index + 1);
+            if (childNode.HasChildren() && !childNode.isEndOfWord)
+            {
+                root.RemoveChild(word[index]);
+            }
+        }
+
+
+        // private void Remove(TrieNode node, string word, int index)
+        // {
+        //     if (!node.HasChild(word[index]))
+        //     {
+        //         Console.WriteLine(node.ToString());
+        //         return;
+        //     }
+
+        //     var nextCharNode = node.GetChild(word[index]);
+
+        //     if (word.Length - 1 == index)
+        //     {
+        //         nextCharNode.isEndOfWord = false;
+        //         Console.WriteLine(node.ToString());
+        //         return;
+        //     }
+
+        //     Remove(nextCharNode, word, index + 1);
+        //     Console.WriteLine(node.ToString());
+        // }
+
+
         public void Traverse()
         {
             Traverse(rootNode);
@@ -88,6 +148,7 @@ namespace DSA.Part2.Tries
                 Traverse(child);
             }
         }
+
         //index = ch - 'a'> eg 'd' - 'a' = 100 - 97 = 3
         private static int CharaterIndex(char ch)
         {
