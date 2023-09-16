@@ -1,12 +1,12 @@
 namespace DSA.Part2.Heap
 {
 
-    public class HeapTree
+    public class MaxHeapTree
     {
         readonly int[] heap;
 
         int lastIndex = -1;
-        public HeapTree(int size)
+        public MaxHeapTree(int size)
         {
             heap = new int[size];
         }

@@ -5,12 +5,37 @@ namespace DSA.Part2.Heap
 
     public class HeapPratice
     {
+        //Check if array of integers represents a max heap
+        public static bool IsMaxHeap(int[] inputArray)
+        {
+            return IsMaxHeap(inputArray, 0);
+        }
+
+        private static bool IsMaxHeap(int[] inputArray, int rootIndex)
+        {
+            int lastParentIndex = (inputArray.Length / 2) - 1;
+
+            //leaf node is a valid max or min heap
+            if (rootIndex > lastParentIndex)
+                return true;
+
+            int leftChildIndex = rootIndex * 2 + 1;
+            int rightChildIndex = rootIndex * 2 + 2;
+
+            if (inputArray[leftChildIndex] > inputArray[rootIndex])
+                return false;
+
+            if (rightChildIndex < inputArray.Length && inputArray[rightChildIndex] > inputArray[rootIndex])
+                return false;
+
+            return IsMaxHeap(inputArray, leftChildIndex) && IsMaxHeap(inputArray, rightChildIndex);
+        }
 
         //Sorting using Heap
         //O(2n log n ) ~= O(n log n)
         public static void SortArrayUsingHeap(int[] numbers)
         {
-            var heap = new HeapTree(numbers.Length);
+            var heap = new MaxHeapTree(numbers.Length);
 
             //O(n log n)
             foreach (var num in numbers)
@@ -36,7 +61,7 @@ namespace DSA.Part2.Heap
 
         public static int FindKthLargestItemInArray(int[] array, int k)
         {
-            var heap = new HeapTree(array.Length);
+            var heap = new MaxHeapTree(array.Length);
 
             foreach (var item in array)
                 heap.Insert(item);

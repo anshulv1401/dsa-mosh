@@ -2,7 +2,7 @@ namespace DSA.Part2.Heap
 {
     public class PriorityQueueWithHeap
     {
-        HeapTree heap = new(10);
+        MaxHeapTree heap = new(10);
         public void Add(int item)
         {
             heap.Insert(item);
