@@ -26,7 +26,20 @@ namespace DSA.Part2.Heap
             Console.WriteLine("dsc: " + string.Join(",", numbers));
         }
 
+        //Find Kth Largest Item
 
+        public static int FindKthLargestItemInArray(int[] array, int k)
+        {
+            var heap = new HeapTree(array.Length);
+
+            foreach (var item in array)
+                heap.Insert(item);
+
+            for (int i = 0; i < k - 1; i++)
+                heap.Remove();
+
+            return heap.Max();
+        }
 
         //Converting a array into heap array IN-PLACE recursively
         public static void HeapifyRecursively(int[] inputArray)

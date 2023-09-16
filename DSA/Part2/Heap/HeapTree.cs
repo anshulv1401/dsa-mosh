@@ -11,7 +11,8 @@ namespace DSA.Part2.Heap
             heap = new int[size];
         }
 
-        //insert(int)
+        //insert(int) 
+        // O(log n)
         public void Insert(int value)
         {
             if (IsFull())
@@ -22,6 +23,7 @@ namespace DSA.Part2.Heap
         }
 
         //remove()
+        //O(1)
         public int Remove()
         {
             if (IsEmpty())
@@ -35,6 +37,14 @@ namespace DSA.Part2.Heap
             lastIndex--;
             return rootValue;
         }
+
+        public int Max()
+        {
+            if (IsEmpty())
+                throw new InvalidOperationException("Heap is Empty");
+            return heap[0];
+        }
+
 
         private int GetLargerChildIndex(int index)
         {
@@ -70,13 +80,13 @@ namespace DSA.Part2.Heap
             return isValid;
         }
 
-        public int LeftChild(int index)
+        private int LeftChild(int index)
         {
             return heap[GetLeftChildIndex(index)];
         }
 
 
-        public int RightChild(int index)
+        private int RightChild(int index)
         {
             return heap[GetRightChildIndex(index)];
         }

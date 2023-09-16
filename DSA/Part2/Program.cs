@@ -164,4 +164,7 @@ Console.WriteLine("Before heapify recursively: " + string.Join(",", numbers4));
 HeapPratice.HeapifyRecursively(numbers4);
 Console.WriteLine("After heapify recursively: " + string.Join(",", numbers4));
 
+int[] numbers5 = new int[] { 5, 3, 8, 1, 4, 2, 10, 20, 30, 40, 80, 70, 200, 100, 90 };
+Console.WriteLine("5th largest item: " + HeapPratice.FindKthLargestItemInArray(numbers5, 5));
+
 #endregion
