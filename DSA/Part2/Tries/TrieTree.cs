@@ -31,6 +31,33 @@ namespace DSA.Part2.Tries
             return current.isEndOfWord;
         }
 
+        // public int CountWords(){
+
+        // }
+
+        public bool ContainsRecursively(string word)
+        {
+            if (string.IsNullOrEmpty(word))
+                return false;
+
+            return ContainsRecursively(rootNode, word, 0);
+        }
+
+        private bool ContainsRecursively(TrieNode rootNode, string word, int index)
+        {
+            if (word.Length == index)
+                return rootNode.isEndOfWord;
+
+            if (rootNode == null)
+                return false;
+
+            if (!rootNode.HasChild(word[index]))
+                return false;
+
+            var child = rootNode.GetChild(word[index]);
+            return ContainsRecursively(child, word, index + 1);
+        }
+
         public void Remove(string word)
         {
             if (word == null)

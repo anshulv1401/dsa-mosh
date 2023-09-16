@@ -206,13 +206,20 @@ trieTree.Insert("canada");
 // Console.WriteLine("Traversal");
 // trieTree.Traverse();
 
-Console.WriteLine("Constain Boy: " + trieTree.Contains("Boy"));
-trieTree.Remove("Boy");
-Console.WriteLine("Constain Boy: " + trieTree.Contains("Boy"));
+Console.WriteLine("Contains Boy: " + trieTree.Contains("Boy"));
+// trieTree.Remove("Boy");
+Console.WriteLine("Contains Boy: " + trieTree.Contains("Boy"));
 
 
 var list = trieTree.FindWords("Boy");
 Console.WriteLine(string.Join(",", list));
+
+
+Console.WriteLine("ContainsRecursively Boy: " + trieTree.ContainsRecursively("Boy"));
+Console.WriteLine("ContainsRecursively Boys: " + trieTree.ContainsRecursively("Boys"));
+Console.WriteLine("ContainsRecursively B: " + trieTree.ContainsRecursively("B"));
+Console.WriteLine("ContainsRecursively EmptyString: " + trieTree.ContainsRecursively(""));
+Console.WriteLine("ContainsRecursively null: " + trieTree.ContainsRecursively(null));
 
 #endregion
 
