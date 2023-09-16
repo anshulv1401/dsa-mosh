@@ -88,3 +88,25 @@ Applications
 leftChildIndex = `parentIndex * 2 + 1`
 rightChildIndex = `parentIndex * 2 + 2`
 parentIndex = (index-1)/2
+
+## Tries Tree (Digital or Radix or Prefix)
+
+Trees that can have several nodes
+
+General Application is in auto-completion
+
+- Each node could have 26 child nodes
+- Root node will be null/empty char
+
+Time complexity
+
+- Seach Operation : **O(L)**
+- Adding a word : **O(L)**
+- Removing a word : **O(L)**
+
+where L is the length of the word we are searching for
+
+Traversals
+
+- Pre-Order : for Printing all nodes
+- Post-Order : for delete a word

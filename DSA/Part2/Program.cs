@@ -128,55 +128,83 @@
 
 #region Heap
 
-using DSA.Part2.Heap;
+// using DSA.Part2.Heap;
 
-var maxHeap = new MaxHeapTree(10);
+// var maxHeap = new MaxHeapTree(10);
 
-maxHeap.Insert(15);
-maxHeap.Insert(10);
-maxHeap.Insert(3);
-maxHeap.Insert(8);
-maxHeap.Insert(12);
-maxHeap.Insert(9);
-maxHeap.Insert(4);
-maxHeap.Insert(1);
-maxHeap.PrintTree();
-maxHeap.Insert(24);
-maxHeap.PrintTree();
-Console.WriteLine(maxHeap.Remove());
-maxHeap.PrintTree();
+// maxHeap.Insert(15);
+// maxHeap.Insert(10);
+// maxHeap.Insert(3);
+// maxHeap.Insert(8);
+// maxHeap.Insert(12);
+// maxHeap.Insert(9);
+// maxHeap.Insert(4);
+// maxHeap.Insert(1);
+// maxHeap.PrintTree();
+// maxHeap.Insert(24);
+// maxHeap.PrintTree();
+// Console.WriteLine(maxHeap.Remove());
+// maxHeap.PrintTree();
 
-int[] numbers1 = new int[] { 5, 3, 10, 1, 4, 2 };
-HeapPratice.SortArrayUsingHeap(numbers1);
+// int[] numbers1 = new int[] { 5, 3, 10, 1, 4, 2 };
+// HeapPratice.SortArrayUsingHeap(numbers1);
 
-int[] numbers2 = new int[] { 5, 3, 8, 1, 4, 2, 10, 20, 30, 40, 80, 70, 200, 100, 90 };
-Console.WriteLine("Before heapify recursively: " + string.Join(",", numbers2));
-HeapPratice.HeapifyRecursively(numbers2);
-Console.WriteLine("After heapify recursively: " + string.Join(",", numbers2));
+// int[] numbers2 = new int[] { 5, 3, 8, 1, 4, 2, 10, 20, 30, 40, 80, 70, 200, 100, 90 };
+// Console.WriteLine("Before heapify recursively: " + string.Join(",", numbers2));
+// HeapPratice.HeapifyRecursively(numbers2);
+// Console.WriteLine("After heapify recursively: " + string.Join(",", numbers2));
 
-int[] numbers3 = new int[] { 5, 3, 8, 1, 4, 2, 10, 20, 30, 40, 80, 70, 200, 100, 90 };
-Console.WriteLine("5th largest item: " + HeapPratice.FindKthLargestItemInArray(numbers3, 5));
+// int[] numbers3 = new int[] { 5, 3, 8, 1, 4, 2, 10, 20, 30, 40, 80, 70, 200, 100, 90 };
+// Console.WriteLine("5th largest item: " + HeapPratice.FindKthLargestItemInArray(numbers3, 5));
 
-int[] numbers4 = new int[] { 5, 3, 8, 1, 4, 2, 10, 20, 30, 40, 80, 70, 200, 100, 90 };
-Console.WriteLine("IsMaxHeap: " + HeapPratice.IsMaxHeap(numbers4));
-HeapPratice.HeapifyRecursively(numbers4);
-Console.WriteLine("IsMaxHeap: " + HeapPratice.IsMaxHeap(numbers4));
+// int[] numbers4 = new int[] { 5, 3, 8, 1, 4, 2, 10, 20, 30, 40, 80, 70, 200, 100, 90 };
+// Console.WriteLine("IsMaxHeap: " + HeapPratice.IsMaxHeap(numbers4));
+// HeapPratice.HeapifyRecursively(numbers4);
+// Console.WriteLine("IsMaxHeap: " + HeapPratice.IsMaxHeap(numbers4));
 
 
-var minHeap = new MinHeapTree(10);
+// var minHeap = new MinHeapTree(10);
 
-minHeap.Insert(15, "15");
-minHeap.Insert(10, "10");
-minHeap.Insert(3, "3");
-minHeap.Insert(8, "8");
-minHeap.Insert(12, "12");
-minHeap.Insert(9, "9");
-minHeap.Insert(4, "4");
-minHeap.Insert(1, "1");
-minHeap.PrintTree();
-minHeap.Insert(24, "24");
-minHeap.PrintTree();
-Console.WriteLine(minHeap.Remove());
-minHeap.PrintTree();
+// minHeap.Insert(15, "15");
+// minHeap.Insert(10, "10");
+// minHeap.Insert(3, "3");
+// minHeap.Insert(8, "8");
+// minHeap.Insert(12, "12");
+// minHeap.Insert(9, "9");
+// minHeap.Insert(4, "4");
+// minHeap.Insert(1, "1");
+// minHeap.PrintTree();
+// minHeap.Insert(24, "24");
+// minHeap.PrintTree();
+// Console.WriteLine(minHeap.Remove());
+// minHeap.PrintTree();
 
 #endregion
+
+#region Trie
+
+using DSA.Part2.Tries;
+
+var trieTree = new TrieTree();
+
+// char ch = 'W';
+// int chInt = ch;
+// System.Console.WriteLine(chInt);
+// int chAccii = ch < 'a' ? ch + ('a' - 'A') : ch;
+// System.Console.WriteLine(chAccii);
+trieTree.Insert("Boy");
+trieTree.Insert("Bot");
+trieTree.Insert("canada");
+Console.WriteLine("Constain Boy: " + trieTree.Contains("Boy"));
+Console.WriteLine("Constain BoR: " + trieTree.Contains("BoR"));
+Console.WriteLine("Constain can: " + trieTree.Contains("can"));
+Console.WriteLine("Constain canada: " + trieTree.Contains("canada"));
+Console.WriteLine("Constain Canada: " + trieTree.Contains("Canada"));
+Console.WriteLine("Constain Null: " + trieTree.Contains(null));
+Console.WriteLine("Constain Empty String: " + trieTree.Contains(""));
+
+Console.WriteLine("Traversal");
+trieTree.Traverse();
+
+#endregion
+
