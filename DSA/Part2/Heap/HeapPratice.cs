@@ -5,12 +5,18 @@ namespace DSA.Part2.Heap
 
     public class HeapPratice
     {
+
+        //Sorting using Heap
+        //O(2n log n ) ~= O(n log n)
         public static void SortArrayUsingHeap(int[] numbers)
         {
             var heap = new HeapTree(numbers.Length);
+
+            //O(n log n)
             foreach (var num in numbers)
                 heap.Insert(num);
 
+            //O(n)
             for (int i = 0; i < numbers.Length; i++)
                 numbers[i] = heap.Remove();
 
@@ -70,43 +76,10 @@ namespace DSA.Part2.Heap
             HeapifyRecursively(inputArray, greaterIndex);
         }
 
-        //Converting a array into heap array IN-PLACE
-        public static void Heapify(int[] inputArray)
-        {
-            for (int index = LastParentIndex(inputArray.Length); index >= 0; index--)
-            {
-                BubbleDown(inputArray, index);
-            }
-        }
-
-        public static void BubbleDown(int[] array, int rootIndex)
-        {
-            if (IsValidParent(array, rootIndex))
-                return;
-
-            int leftIndex = LeftChildIndex(rootIndex);
-            int rightIndex = RightChildIndex(rootIndex);
-            int greaterChild = array[leftIndex] < array[rightIndex] ? rightIndex : leftIndex;
-            Swap(array, rootIndex, greaterChild);
-            BubbleDown(array, greaterChild);
-        }
-
-        public static void Swap(int[] array, int index1, int index2)
+        #region Private helper methods
+        private static void Swap(int[] array, int index1, int index2)
         {
             (array[index1], array[index2]) = (array[index2], array[index1]);
-        }
-
-        private static bool IsValidParent(int[] array, int indexOfParent)
-        {
-            var leftChildIndex = LeftChildIndex(indexOfParent);
-            var rightChildIndex = RightChildIndex(indexOfParent);
-            if (leftChildIndex >= array.Length)
-                return true;
-
-            if (rightChildIndex >= array.Length)
-                return array[indexOfParent] >= array[leftChildIndex];
-
-            return array[indexOfParent] >= array[leftChildIndex] && array[indexOfParent] >= array[rightChildIndex];
         }
 
         private static int LeftChildIndex(int indexOfParent)
@@ -128,5 +101,6 @@ namespace DSA.Part2.Heap
         {
             return (arraySize / 2) - 1;
         }
+        #endregion
     }
 }

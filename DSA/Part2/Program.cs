@@ -149,22 +149,12 @@ heap.PrintTree();
 int[] numbers1 = new int[] { 5, 3, 10, 1, 4, 2 };
 HeapPratice.SortArrayUsingHeap(numbers1);
 
-int[] numbers2 = new int[] { 5, 3, 8, 1, 4, 2 };
-Console.WriteLine("Before heapify: " + string.Join(",", numbers2));
-HeapPratice.Heapify(numbers2);
-Console.WriteLine("After heapify: " + string.Join(",", numbers2));
+int[] numbers2 = new int[] { 5, 3, 8, 1, 4, 2, 10, 20, 30, 40, 80, 70, 200, 100, 90 };
+Console.WriteLine("Before heapify recursively: " + string.Join(",", numbers2));
+HeapPratice.HeapifyRecursively(numbers2);
+Console.WriteLine("After heapify recursively: " + string.Join(",", numbers2));
 
 int[] numbers3 = new int[] { 5, 3, 8, 1, 4, 2, 10, 20, 30, 40, 80, 70, 200, 100, 90 };
-Console.WriteLine("Before heapify: " + string.Join(",", numbers3));
-HeapPratice.Heapify(numbers3);
-Console.WriteLine("After heapify: " + string.Join(",", numbers3));
-
-int[] numbers4 = new int[] { 5, 3, 8, 1, 4, 2, 10, 20, 30, 40, 80, 70, 200, 100, 90 };
-Console.WriteLine("Before heapify recursively: " + string.Join(",", numbers4));
-HeapPratice.HeapifyRecursively(numbers4);
-Console.WriteLine("After heapify recursively: " + string.Join(",", numbers4));
-
-int[] numbers5 = new int[] { 5, 3, 8, 1, 4, 2, 10, 20, 30, 40, 80, 70, 200, 100, 90 };
-Console.WriteLine("5th largest item: " + HeapPratice.FindKthLargestItemInArray(numbers5, 5));
+Console.WriteLine("5th largest item: " + HeapPratice.FindKthLargestItemInArray(numbers3, 5));
 
 #endregion
