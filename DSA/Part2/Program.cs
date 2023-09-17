@@ -183,20 +183,20 @@
 
 #region Trie
 
-using DSA.Part2.Tries;
+// using DSA.Part2.Tries;
 
-var trieTree = new TrieTree();
+// var trieTree = new TrieTree();
 
 // char ch = 'W';
 // int chInt = ch;
 // System.Console.WriteLine(chInt);
 // int chAccii = ch < 'a' ? ch + ('a' - 'A') : ch;
 // System.Console.WriteLine(chAccii);
-trieTree.Insert("Boy");
-trieTree.Insert("Boys");
-trieTree.Insert("Boycot");
-trieTree.Insert("Boydance");
-trieTree.Insert("canada");
+// trieTree.Insert("Boy");
+// trieTree.Insert("Boys");
+// trieTree.Insert("Boycot");
+// trieTree.Insert("Boydance");
+// trieTree.Insert("canada");
 // Console.WriteLine("Constain Boy: " + trieTree.Contains("Boy"));
 // Console.WriteLine("Constain canada: " + trieTree.Contains("canada"));
 // Console.WriteLine("Constain Canada: " + trieTree.Contains("Canada"));
@@ -206,25 +206,53 @@ trieTree.Insert("canada");
 // Console.WriteLine("Traversal");
 // trieTree.Traverse();
 
-Console.WriteLine("Contains Boy: " + trieTree.Contains("Boy"));
-trieTree.Remove("Boy");
-Console.WriteLine("Contains Boy: " + trieTree.Contains("Boy"));
+// Console.WriteLine("Contains Boy: " + trieTree.Contains("Boy"));
+// trieTree.Remove("Boy");
+// Console.WriteLine("Contains Boy: " + trieTree.Contains("Boy"));
 
 
-var list = trieTree.FindWords("Boy");
-Console.WriteLine(string.Join(",", list));
+// var list = trieTree.FindWords("Boy");
+// Console.WriteLine(string.Join(",", list));
 
 
-Console.WriteLine("ContainsRecursively Boy: " + trieTree.ContainsRecursively("Boy"));
-Console.WriteLine("ContainsRecursively Boys: " + trieTree.ContainsRecursively("Boys"));
-Console.WriteLine("ContainsRecursively B: " + trieTree.ContainsRecursively("B"));
-Console.WriteLine("ContainsRecursively EmptyString: " + trieTree.ContainsRecursively(""));
-Console.WriteLine("ContainsRecursively null: " + trieTree.ContainsRecursively(null));
+// Console.WriteLine("ContainsRecursively Boy: " + trieTree.ContainsRecursively("Boy"));
+// Console.WriteLine("ContainsRecursively Boys: " + trieTree.ContainsRecursively("Boys"));
+// Console.WriteLine("ContainsRecursively B: " + trieTree.ContainsRecursively("B"));
+// Console.WriteLine("ContainsRecursively EmptyString: " + trieTree.ContainsRecursively(""));
+// Console.WriteLine("ContainsRecursively null: " + trieTree.ContainsRecursively(null));
 
-Console.WriteLine("Count Words: " + trieTree.CountWords());
+// Console.WriteLine("Count Words: " + trieTree.CountWords());
 
 
-Console.WriteLine("Longest Common Prefix: " + TrieTree.LongestCommonPrefix(new string[] { "card", "care" }));
+// Console.WriteLine("Longest Common Prefix: " + TrieTree.LongestCommonPrefix(new string[] { "card", "care" }));
+
+#endregion
+
+#region Graph
+
+using DSA.Part2.Graphs;
+
+var graph = new Graph();
+graph.AddNode("A");
+graph.AddNode("B");
+graph.AddNode("C");
+graph.AddNode("E");
+graph.AddNode("F");
+graph.Print();
+
+graph.RemoveNode("F");
+graph.AddEdge("A", "A");
+graph.AddEdge("A", "B");
+graph.AddEdge("A", "C");
+graph.AddEdge("B", "C");
+graph.AddEdge("B", "A");
+graph.AddEdge("B", "A");
+graph.Print();
+
+graph.RemoveNode("A");
+graph.Print();
+graph.RemoveEdge("B", "C");
+graph.Print();
 
 #endregion
 
