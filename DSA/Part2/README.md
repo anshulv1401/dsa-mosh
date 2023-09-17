@@ -160,3 +160,13 @@ Graphs contains Nodes and egdes in which a node can connect to multiple nodes.
     | Remove Node    | O(V^2) | O(V^2)       | O(V^2)     |
 
   - If we are dealing with dense graph then use Matrix else use List. Generally List is better then Matrix
+
+### Traversal
+
+- DFS
+  Start from a node and keep travering until you find the last node
+- BFS
+  - Start from a node and traverse its child first before moving forward
+  - Implemented using a queue
+- Can start traversal from anynode
+  - Will reach all the nodes that are directly or indirectly connected to that node

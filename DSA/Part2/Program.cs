@@ -241,6 +241,8 @@ graph.AddNode("F");
 graph.Print();
 
 graph.RemoveNode("F");
+Console.WriteLine("F node removed");
+
 graph.AddEdge("A", "A");
 graph.AddEdge("A", "B");
 graph.AddEdge("A", "C");
@@ -250,9 +252,43 @@ graph.AddEdge("B", "A");
 graph.Print();
 
 graph.RemoveNode("A");
+Console.WriteLine("A node removed");
+
 graph.Print();
 graph.RemoveEdge("B", "C");
+Console.WriteLine("B C edge removed");
 graph.Print();
+
+var graph2 = new Graph();
+graph2.AddNode("C");
+graph2.AddNode("A");
+graph2.AddNode("B");
+graph2.AddNode("D");
+graph2.AddNode("E");
+graph2.AddEdge("A", "B");
+graph2.AddEdge("A", "E");
+graph2.AddEdge("B", "E");
+graph2.AddEdge("C", "A");
+graph2.AddEdge("C", "B");
+graph2.AddEdge("C", "D");
+graph2.AddEdge("D", "E");
+
+graph2.Print();
+Console.WriteLine(string.Join(",", graph2.TraverseDepthFirstRecursive("C")));
+
+
+var graph3 = new Graph();
+graph3.AddNode("A");
+graph3.AddNode("C");
+graph3.AddNode("B");
+graph3.AddNode("D");
+graph3.AddEdge("A", "B");
+graph3.AddEdge("B", "D");
+graph3.AddEdge("D", "C");
+graph3.AddEdge("A", "C");
+
+graph3.Print();
+Console.WriteLine(string.Join(",", graph3.TraverseDepthFirstRecursive("Ad")));
 
 #endregion
 

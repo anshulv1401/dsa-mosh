@@ -19,15 +19,17 @@ namespace DSA.Part2.Graphs
             }
         }
 
+
         readonly Dictionary<string, GNode> nodes = new();
-        readonly Dictionary<GNode, HashSet<GNode>> adjacencyList = new();
+
+        readonly Dictionary<GNode, List<GNode>> adjacencyList = new();
 
         //AddNode(label);
         public void AddNode(string label)
         {
             var node = new GNode(label);
             nodes.TryAdd(label, node);
-            adjacencyList.TryAdd(node, new HashSet<GNode>());
+            adjacencyList.TryAdd(node, new List<GNode>());
         }
 
         //RemoveNode(label);
@@ -38,7 +40,7 @@ namespace DSA.Part2.Graphs
 
             //Detaching everynode from the nodetoberemoved
             foreach (var vertex in adjacencyList)
-                vertex.Value.Remove(nodes[label]);
+                vertex.Value.RemoveAll(node => node == nodes[label]);
 
             adjacencyList.Remove(nodes[label]);
             nodes.Remove(label);
@@ -64,7 +66,33 @@ namespace DSA.Part2.Graphs
             if (!nodes.ContainsKey(fromLabel) || !nodes.ContainsKey(toLabel))
                 return;
 
-            adjacencyList[nodes[fromLabel]].Remove(nodes[toLabel]);
+            adjacencyList[nodes[fromLabel]].RemoveAll(node => node == nodes[toLabel]);
+        }
+
+        public List<string> TraverseDepthFirstRecursive(string root)
+        {
+            var resultList = new List<string>();
+
+            if (!nodes.ContainsKey(root))
+                return resultList;
+
+            var resultHash = new HashSet<GNode>();
+            TraverseDepthFirstResursive(nodes[root], adjacencyList, resultHash);
+
+            foreach (var result in resultHash)
+                resultList.Add(result.Label);
+            return resultList;
+        }
+
+        private void TraverseDepthFirstResursive(GNode gNode, Dictionary<GNode, List<GNode>> vertices, HashSet<GNode> resultList)
+        {
+            if (resultList.Contains(gNode))
+                return;
+
+            resultList.Add(gNode);
+
+            foreach (var vertex in vertices[gNode])
+                TraverseDepthFirstResursive(vertex, vertices, resultList);
         }
 
         //Print()
