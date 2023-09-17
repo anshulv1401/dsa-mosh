@@ -77,24 +77,55 @@ namespace DSA.Part2.Graphs
                 return resultList;
 
             var resultHash = new HashSet<GNode>();
-            TraverseDepthFirstResursive(nodes[root], adjacencyList, resultHash);
+            TraverseDepthFirstResursive(nodes[root], resultHash);
 
             foreach (var result in resultHash)
                 resultList.Add(result.Label);
             return resultList;
         }
 
-        private void TraverseDepthFirstResursive(GNode gNode, Dictionary<GNode, List<GNode>> vertices, HashSet<GNode> resultList)
+        private void TraverseDepthFirstResursive(GNode gNode, HashSet<GNode> visited)
         {
-            if (resultList.Contains(gNode))
+            if (visited.Contains(gNode))
                 return;
 
-            resultList.Add(gNode);
+            visited.Add(gNode);
 
-            foreach (var vertex in vertices[gNode])
-                TraverseDepthFirstResursive(vertex, vertices, resultList);
+            foreach (var vertex in adjacencyList[gNode])
+                TraverseDepthFirstResursive(vertex, visited);
         }
 
+
+        // Push(root)
+        // while (stack is not empty)
+        //  current = pop()
+        //  visit(current)
+        //  push each unvisited neightbour onto the stack
+        public List<string> TraverseDepthFirstIterative(string root)
+        {
+            var resultList = new List<string>();
+
+            if (!nodes.ContainsKey(root))
+                return resultList;
+
+            var visited = new HashSet<GNode>();
+
+            Stack<GNode> stack = new();
+            stack.Push(nodes[root]);
+            while (stack.Count > 0)
+            {
+                var current = stack.Pop();
+                if (visited.Contains(current))
+                    continue;
+
+                visited.Add(current);
+                resultList.Add(current.Label);
+                foreach (var vertex in adjacencyList[current])
+                    if (visited.Contains(current))
+                        stack.Push(vertex);
+            }
+            return resultList;
+        }
         //Print()
         //  A is connected to [B,C]
         //  B is connected to [A]

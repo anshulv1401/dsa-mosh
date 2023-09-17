@@ -288,7 +288,8 @@ graph3.AddEdge("D", "C");
 graph3.AddEdge("A", "C");
 
 graph3.Print();
-Console.WriteLine(string.Join(",", graph3.TraverseDepthFirstRecursive("Ad")));
+Console.WriteLine("Recursive DFS:" + string.Join(",", graph3.TraverseDepthFirstRecursive("A")));
+Console.WriteLine("Iterative DFS:" + string.Join(",", graph3.TraverseDepthFirstIterative("A")));
 
 #endregion
 
