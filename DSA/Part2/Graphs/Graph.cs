@@ -126,6 +126,39 @@ namespace DSA.Part2.Graphs
             }
             return resultList;
         }
+
+
+        // Enqueue(root)
+        // while (stack is not empty)
+        //  current = Dequeue()
+        //  visit(current)
+        //  Enqueue each unvisited neightbour onto the stack
+        public List<string> TraverseBreathFirstIterative(string root)
+        {
+            var resultList = new List<string>();
+
+            if (!nodes.ContainsKey(root))
+                return resultList;
+
+            var visited = new HashSet<GNode>();
+
+            Queue<GNode> stack = new();
+            stack.Enqueue(nodes[root]);
+            while (stack.Count > 0)
+            {
+                var current = stack.Dequeue();
+                if (visited.Contains(current))
+                    continue;
+
+                visited.Add(current);
+                resultList.Add(current.Label);
+                foreach (var vertex in adjacencyList[current])
+                    if (visited.Contains(current))
+                        stack.Enqueue(vertex);
+            }
+            return resultList;
+        }
+
         //Print()
         //  A is connected to [B,C]
         //  B is connected to [A]

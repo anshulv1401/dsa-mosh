@@ -290,6 +290,7 @@ graph3.AddEdge("A", "C");
 graph3.Print();
 Console.WriteLine("Recursive DFS:" + string.Join(",", graph3.TraverseDepthFirstRecursive("A")));
 Console.WriteLine("Iterative DFS:" + string.Join(",", graph3.TraverseDepthFirstIterative("A")));
+Console.WriteLine("Iterative BFS:" + string.Join(",", graph3.TraverseBreathFirstIterative("A")));
 
 #endregion
 
