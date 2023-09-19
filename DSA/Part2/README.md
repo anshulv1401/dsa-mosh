@@ -194,11 +194,44 @@ Graphs contains Nodes and egdes in which a node can connect to multiple nodes.
   - one to store the nodes that we have visited. If we visit a node and all its childrens then we add it into visited list.
   - For cycle dectection with colors, simply rename the sets from visiting, visited to red, green etc.
 
-# Undirected Graphs
+## Undirected Graphs
 
 - Weighted graphs
+
   - If edges have weight associated with it. we call it weighted graphs
     - Cost
     - Distance
     - Complexity
   - Common application is finding the shortest path between tweo nodes
+
+- Dijkstra's shortest path algorithm: Example of a Greedy algorithum
+
+  - Greedy alogrithum: Tries to find the optimal solution to a problem, by making optimal choices at each step.
+  - Initialization of all nodes with distance "infinite"; initialization of the starting node with 0
+  - Marking of the distance of the starting node as permanent, all other distances as temporarily.
+  - Setting of starting node as active.
+  - Calculation of the temporary distances of all neighbour nodes of the active node by summing up its distance with the weights of the edges.
+  - If such a calculated distance of a node is smaller as the current one, update the distance and set the current node as antecessor. This step is also called update and is Dijkstra's central idea.
+  - Setting of the node with the minimal temporary distance as active. Mark its distance as permanent.
+  - Repeating of steps 4 to 7 until there aren't any nodes left with a permanent distance, which neighbours still have temporary distances.
+
+```
+  function Dijkstra(Graph, source):
+
+      for each vertex v in Graph.Vertices:
+          dist[v] ← INFINITY
+          prev[v] ← UNDEFINED
+          add v to Q
+      dist[source] ← 0
+
+      while Q is not empty:
+          u ← vertex in Q with min dist[u]
+          remove u from Q
+
+          for each neighbor v of u still in Q:
+              alt ← dist[u] + Graph.Edges(u, v)
+              if alt < dist[v]:
+                  dist[v] ← alt
+                  prev[v] ← u
+      return dist[], prev[]
+```

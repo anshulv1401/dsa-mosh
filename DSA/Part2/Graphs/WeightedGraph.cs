@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Text;
 
 namespace DSA.Part2.Graphs
@@ -32,9 +33,9 @@ namespace DSA.Part2.Graphs
 
         private class Edge
         {
-            private readonly Node from;
-            private readonly Node to;
-            private readonly int weight;
+            public readonly Node from;
+            public readonly Node to;
+            public readonly int weight;
 
             public Edge(Node from, Node to, int weight)
             {
@@ -68,6 +69,131 @@ namespace DSA.Part2.Graphs
             nodes[fromLabel].AddEdge(nodes[toLabel], weight);
         }
 
+
+        public List<string> GetShortestDistanceIterative(string from, string to)
+        {
+            if (!(nodes.ContainsKey(from) && nodes.ContainsKey(to)))
+                throw new InvalidOperationException();
+
+            var fromNode = nodes[from];
+            var toNode = nodes[to];
+            var priorityQueue = new PriorityQueue<Node, int>();
+            var visited = new HashSet<Node>();
+
+            var distances = new Dictionary<Node, int>();
+            var previousNodes = new Dictionary<Node, Node>();
+
+            foreach (var node in nodes.Values)
+            {
+                distances[node] = int.MaxValue;
+            }
+
+            previousNodes[fromNode] = null;
+            distances[fromNode] = 0;
+            priorityQueue.Enqueue(fromNode, 0);
+
+            while (priorityQueue.Count > 0)
+            {
+                var current = priorityQueue.Dequeue();
+                visited.Add(current);
+
+                foreach (var edge in current.GetEdges())
+                {
+                    var neighbor = edge.to;
+                    if (visited.Contains(neighbor))
+                        continue;
+
+                    var newDistance = edge.weight + distances[current];
+                    if (distances[neighbor] > newDistance)
+                    {
+                        distances[neighbor] = newDistance;
+                        previousNodes[neighbor] = current;
+                        priorityQueue.Enqueue(neighbor, newDistance);
+                    }
+                }
+            }
+
+            return BuildPath(previousNodes, toNode);
+        }
+
+        private static List<string> BuildPath(Dictionary<Node, Node> previousNodes, Node toNode)
+        {
+            var stack = new Stack<string>();
+
+            var previousNode = toNode;
+            while (previousNode != null)
+            {
+                stack.Push(previousNode.ToString());
+                previousNode = previousNodes[previousNode];
+            }
+
+            return stack.ToList();
+
+        }
+
+        public int GetShortestDistanceRecursive(string from, string to)
+        {
+            if (!(nodes.ContainsKey(from) && nodes.ContainsKey(to)))
+                return int.MaxValue;
+
+            var fromNode = nodes[from];
+            var priorityQueue = new PriorityQueue<Node, int>();
+            var distances = new Dictionary<Node, int>();
+            var previousNodes = new Dictionary<Node, Node>();
+            var visited = new HashSet<Node>();
+
+            foreach (var node in nodes.Values)
+            {
+                distances.Add(node, int.MaxValue);
+            }
+
+            previousNodes[fromNode] = null;
+            distances[fromNode] = 0;
+            GetShortestDistanceRecursive(fromNode, visited, priorityQueue, distances, previousNodes);
+
+            var previousNode = nodes[to];
+            while (previousNode != null)
+            {
+                Console.Write(previousNode + "-->" + distances[previousNode] + "-->");
+                previousNode = previousNodes[previousNode];
+            }
+            Console.WriteLine("");
+
+            return distances[nodes[to]];
+        }
+
+
+        private void GetShortestDistanceRecursive(Node current, HashSet<Node> visited, PriorityQueue<Node, int> priorityQueue, Dictionary<Node, int> distances, Dictionary<Node, Node> previousNodes)
+        {
+            if (visited.Contains(current))
+                return;
+
+            foreach (var edge in current.GetEdges())
+            {
+                var neighbor = edge.to;
+
+                if (visited.Contains(neighbor))
+                    continue;
+
+                var newDistance = edge.weight + distances[current];
+                if (distances[neighbor] > newDistance)
+                {
+                    distances[neighbor] = newDistance;
+                    previousNodes[neighbor] = current;
+                    priorityQueue.Enqueue(neighbor, newDistance);
+                }
+            }
+
+            visited.Add(current);
+
+            if (priorityQueue.Count <= 0)
+            {
+                return;
+            }
+            var nearestNeighbor = priorityQueue.Dequeue();
+
+            GetShortestDistanceRecursive(nearestNeighbor, visited, priorityQueue, distances, previousNodes);
+        }
 
         //Print()
         //  A is connected to [B,C]

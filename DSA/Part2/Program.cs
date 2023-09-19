@@ -325,5 +325,28 @@ weightedGraph.AddEdge("A", "B", 3);
 weightedGraph.AddEdge("A", "C", 2);
 weightedGraph.Print();
 
+
+
+var weightedGraph2 = new WeightedGraph();
+
+weightedGraph2.AddNode("A");
+weightedGraph2.AddNode("B");
+weightedGraph2.AddNode("C");
+weightedGraph2.AddNode("D");
+weightedGraph2.AddNode("E");
+
+weightedGraph2.AddEdge("A", "B", 3);
+weightedGraph2.AddEdge("A", "C", 4);
+weightedGraph2.AddEdge("A", "D", 2);
+weightedGraph2.AddEdge("D", "C", 1);
+weightedGraph2.AddEdge("D", "B", 6);
+weightedGraph2.AddEdge("D", "E", 5);
+weightedGraph2.AddEdge("B", "E", 1);
+
+weightedGraph2.Print();
+
+Console.WriteLine("Recursive Shortest distance between A and E is " + weightedGraph2.GetShortestDistanceRecursive("A", "E"));
+Console.WriteLine("Iterative Shortest path between A and E is " + string.Join(",", weightedGraph2.GetShortestDistanceIterative("A", "E")));
+
 #endregion
 
