@@ -6,7 +6,7 @@ namespace DSA.Part2.Graphs
     {
         private class Node
         {
-            public string Label { get; }
+            private string Label { get; }
 
             public Node(string label)
             {
@@ -80,7 +80,7 @@ namespace DSA.Part2.Graphs
             TraverseDepthFirstResursive(nodes[root], resultHash);
 
             foreach (var result in resultHash)
-                resultList.Add(result.Label);
+                resultList.Add(result.ToString());
             return resultList;
         }
 
@@ -119,7 +119,7 @@ namespace DSA.Part2.Graphs
                     continue;
 
                 visited.Add(current);
-                resultList.Add(current.Label);
+                resultList.Add(current.ToString());
                 foreach (var vertex in adjacencyList[current])
                     if (visited.Contains(current))
                         stack.Push(vertex);
@@ -151,7 +151,7 @@ namespace DSA.Part2.Graphs
                     continue;
 
                 visited.Add(current);
-                resultList.Add(current.Label);
+                resultList.Add(current.ToString());
                 foreach (var vertex in adjacencyList[current])
                     if (visited.Contains(current))
                         stack.Enqueue(vertex);
@@ -169,7 +169,7 @@ namespace DSA.Part2.Graphs
 
             var resultList = new List<string>();
             while (stack.Count > 0)
-                resultList.Add(stack.Pop().Label);
+                resultList.Add(stack.Pop().ToString());
             return resultList;
         }
 

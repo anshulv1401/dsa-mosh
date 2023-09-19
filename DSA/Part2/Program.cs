@@ -313,8 +313,17 @@
 
 #region Undirected Graphs
 
+using DSA.Part2.Graphs;
 
+var weightedGraph = new WeightedGraph();
 
+weightedGraph.AddNode("A");
+weightedGraph.AddNode("B");
+weightedGraph.AddNode("C");
+
+weightedGraph.AddEdge("A", "B", 3);
+weightedGraph.AddEdge("A", "C", 2);
+weightedGraph.Print();
 
 #endregion
 
