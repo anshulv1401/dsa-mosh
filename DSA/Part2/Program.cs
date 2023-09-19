@@ -278,19 +278,22 @@ Console.WriteLine(string.Join(",", graph2.TraverseDepthFirstRecursive("C")));
 
 
 var graph3 = new Graph();
-graph3.AddNode("A");
-graph3.AddNode("C");
+graph3.AddNode("X");
 graph3.AddNode("B");
-graph3.AddNode("D");
-graph3.AddEdge("A", "B");
-graph3.AddEdge("B", "D");
-graph3.AddEdge("D", "C");
-graph3.AddEdge("A", "C");
+graph3.AddNode("A");
+graph3.AddNode("P");
+graph3.AddEdge("X", "A");
+graph3.AddEdge("X", "B");
+graph3.AddEdge("A", "P");
+graph3.AddEdge("B", "P");
 
 graph3.Print();
 Console.WriteLine("Recursive DFS:" + string.Join(",", graph3.TraverseDepthFirstRecursive("A")));
 Console.WriteLine("Iterative DFS:" + string.Join(",", graph3.TraverseDepthFirstIterative("A")));
 Console.WriteLine("Iterative BFS:" + string.Join(",", graph3.TraverseBreathFirstIterative("A")));
+
+
+Console.WriteLine("TopologicalSort :" + string.Join(",", graph3.TopologicalSort()));
 
 #endregion
 

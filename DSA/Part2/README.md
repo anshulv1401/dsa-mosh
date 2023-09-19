@@ -170,3 +170,17 @@ Graphs contains Nodes and egdes in which a node can connect to multiple nodes.
   - Implemented using a queue
 - Can start traversal from anynode
   - Will reach all the nodes that are directly or indirectly connected to that node
+
+### Topological Sorting
+
+- To get correct order of operation on a task that are dependent on each other.
+  - Scheduling Jobs
+  - Build project with multiple dependencies
+- Doesn't producee unique results
+- Works on Graph without a cycle i.e, Directed Acyclic graph, DAG for short
+- Impl
+  - Start with DFS and reach to which is not dependent on any other operation
+  - Use stack
+  - Add the last node to the stack
+  - Visit all the children
+  - While backtracking add the node if all the children of the current node is already done in the stack.

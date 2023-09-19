@@ -159,6 +159,31 @@ namespace DSA.Part2.Graphs
             return resultList;
         }
 
+        public List<string> TopologicalSort()
+        {
+            var visited = new HashSet<GNode>();
+            var stack = new Stack<GNode>();
+            foreach (var node in nodes)
+                TopologicalSort(node.Value, visited, stack);
+
+            var resultList = new List<string>();
+            while (stack.Count > 0)
+                resultList.Add(stack.Pop().Label);
+            return resultList;
+        }
+
+        private void TopologicalSort(GNode root, HashSet<GNode> visited, Stack<GNode> stack)
+        {
+            if (visited.Contains(root))
+                return;
+
+            visited.Add(root);
+            foreach (var node in adjacencyList[root])
+                TopologicalSort(node, visited, stack);
+
+            stack.Push(root);
+        }
+
         //Print()
         //  A is connected to [B,C]
         //  B is connected to [A]
