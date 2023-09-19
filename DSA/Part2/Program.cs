@@ -347,6 +347,22 @@ weightedGraph2.Print();
 
 Console.WriteLine("Recursive Shortest distance between A and E is " + weightedGraph2.GetShortestDistanceRecursive("A", "E"));
 Console.WriteLine("Iterative Shortest path between A and E is " + string.Join(",", weightedGraph2.GetShortestDistanceIterative("A", "E")));
+Console.WriteLine("Has cycle " + weightedGraph2.HasCycle());
+
+
+var weightedGraph3 = new WeightedGraph();
+
+weightedGraph3.AddNode("A");
+weightedGraph3.AddNode("B");
+weightedGraph3.AddNode("C");
+
+weightedGraph3.AddEdge("A", "B", 3);
+weightedGraph3.AddEdge("B", "C", 4);
+weightedGraph3.AddEdge("C", "A", 2);
+
+weightedGraph3.Print();
+
+Console.WriteLine("Has cycle " + weightedGraph3.HasCycle());
 
 #endregion
 

@@ -195,6 +195,42 @@ namespace DSA.Part2.Graphs
             GetShortestDistanceRecursive(nearestNeighbor, visited, priorityQueue, distances, previousNodes);
         }
 
+        public bool HasCycle()
+        {
+            var visited = new HashSet<Node>();
+
+            foreach (var node in nodes.Values)
+            {
+                if (visited.Contains(node))
+                    continue;
+
+                if (HasCycle(node, null, visited))
+                    return true;
+            }
+
+            return false;
+        }
+
+
+        private bool HasCycle(Node node, Node parent, HashSet<Node> visited)
+        {
+            visited.Add(node);
+
+            foreach (var edges in node.GetEdges())
+            {
+                if (edges.to == parent)
+                    continue;
+
+                if (visited.Contains(edges.to))
+                    return true;
+
+                if (HasCycle(edges.to, node, visited))
+                    return true;
+            }
+
+            return false;
+        }
+
         //Print()
         //  A is connected to [B,C]
         //  B is connected to [A]
