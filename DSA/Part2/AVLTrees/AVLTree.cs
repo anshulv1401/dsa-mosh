@@ -5,7 +5,25 @@ namespace DSA.Part2.AVLTrees
 
     public class AVLTree
     {
-        public AVLNode root;
+        private class Node
+        {
+            public Node(int val)
+            {
+                this.val = val;
+            }
+
+            public int val;
+            public int height;
+            public Node leftChild;
+            public Node rightChild;
+
+            public override string ToString()
+            {
+                return "Node:" + val;
+            }
+        }
+
+        private Node root;
 
         public void Insert(int value)
         {
@@ -13,10 +31,10 @@ namespace DSA.Part2.AVLTrees
         }
 
 
-        private AVLNode Insert(AVLNode root, int value)
+        private Node Insert(Node root, int value)
         {
             if (root == null)
-                return new AVLNode(value);
+                return new Node(value);
 
             if (root.val > value)
                 root.leftChild = Insert(root.leftChild, value);
@@ -53,7 +71,7 @@ namespace DSA.Part2.AVLTrees
         //  30
         //leftRotate(30)
         //rightRotate(10)
-        private AVLNode Balance(AVLNode root)
+        private Node Balance(Node root)
         {
             if (IsLeftHeavy(root))
             {
@@ -71,7 +89,7 @@ namespace DSA.Part2.AVLTrees
         }
 
         //Rotate left
-        private AVLNode RotateLeft(AVLNode root)
+        private Node RotateLeft(Node root)
         {
             var newRoot = root.rightChild;
             root.rightChild = newRoot.leftChild;
@@ -83,7 +101,7 @@ namespace DSA.Part2.AVLTrees
         }
 
         //Rotate right
-        private AVLNode RotateRight(AVLNode root)
+        private Node RotateRight(Node root)
         {
             var newRoot = root.leftChild;
             root.leftChild = newRoot.rightChild;
@@ -94,36 +112,36 @@ namespace DSA.Part2.AVLTrees
             return newRoot;
         }
 
-        private bool IsLeftHeavy(AVLNode root)
+        private bool IsLeftHeavy(Node root)
         {
             return BalanceFactor(root) > 1;
         }
 
-        private bool IsRightHeavy(AVLNode root)
+        private bool IsRightHeavy(Node root)
         {
             return BalanceFactor(root) < -1;
         }
 
-        private int BalanceFactor(AVLNode root)
+        private int BalanceFactor(Node root)
         {
             if (root == null)
                 return 0;
             return Height(root.leftChild) - Height(root.rightChild);
         }
 
-        private void SetHeight(AVLNode root)
+        private void SetHeight(Node root)
         {
             root.height = Math.Max(Height(root.leftChild), Height(root.rightChild)) + 1;
         }
 
-        private int Height(AVLNode node)
+        private int Height(Node node)
         {
             return node?.height ?? -1;
         }
 
         public void LevelOrderTraversal()
         {
-            var dict = new Dictionary<int, List<AVLNode>>();
+            var dict = new Dictionary<int, List<Node>>();
             LevelOrderTraversal(root, 0, dict);
             foreach (var entry in dict)
             {
@@ -133,7 +151,7 @@ namespace DSA.Part2.AVLTrees
             }
         }
 
-        private void LevelOrderTraversal(AVLNode root, int height, Dictionary<int, List<AVLNode>> dict)
+        private void LevelOrderTraversal(Node root, int height, Dictionary<int, List<Node>> dict)
         {
             if (root == null)
                 return;
@@ -141,7 +159,7 @@ namespace DSA.Part2.AVLTrees
             if (dict.ContainsKey(height))
                 dict[height].Add(root);
             else
-                dict.Add(height, new List<AVLNode>() { root });
+                dict.Add(height, new List<Node>() { root });
 
             LevelOrderTraversal(root.leftChild, height + 1, dict);
             LevelOrderTraversal(root.rightChild, height + 1, dict);

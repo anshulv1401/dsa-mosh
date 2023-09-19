@@ -2,7 +2,7 @@ using System.Text;
 
 namespace DSA.Part2.Graphs
 {
-    public class Graph
+    public class WeightedGraph
     {
         private class Node
         {

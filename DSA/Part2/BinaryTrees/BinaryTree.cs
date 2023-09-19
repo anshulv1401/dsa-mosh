@@ -3,6 +3,23 @@ namespace DSA.Part2.BinaryTrees
 
     public class BinaryTree
     {
+        public class Node
+        {
+            public Node(int val)
+            {
+                this.val = val;
+            }
+
+            public int val;
+            public Node leftChild;
+            public Node rightChild;
+
+            public override string ToString()
+            {
+                return "Node:" + val;
+            }
+        }
+
         public Node root;
 
         public void Insert(int value)
