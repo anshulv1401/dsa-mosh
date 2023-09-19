@@ -123,6 +123,7 @@ Graphs contains Nodes and egdes in which a node can connect to multiple nodes.
 - Application
   - Social media connections like facebook linkedin twitter
   - Shortest route or fastest path
+  - Topological sorting
 - Implementation
 
   - Adjacency Matrix : problem space complexity = O(n^2). Suitable if you know the number of nodes you need and don't need to added for remove very often.
@@ -184,3 +185,20 @@ Graphs contains Nodes and egdes in which a node can connect to multiple nodes.
   - Add the last node to the stack
   - Visit all the children
   - While backtracking add the node if all the children of the current node is already done in the stack.
+
+### Cycle detection in directed graph
+
+- Maintain 2 sets of notes
+  - one to keep track of all the nodes in the graph
+  - one to store the nodes that we are currently visiting. If we haven't visisted all its children we add it to visiting list.
+  - one to store the nodes that we have visited. If we visit a node and all its childrens then we add it into visited list.
+  - For cycle dectection with colors, simply rename the sets from visiting, visited to red, green etc.
+
+# Undirected Graphs
+
+- Weighted graphs
+  - If edges have weight associated with it. we call it weighted graphs
+    - Cost
+    - Distance
+    - Complexity
+  - Common application is finding the shortest path between tweo nodes

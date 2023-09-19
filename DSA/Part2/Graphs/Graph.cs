@@ -159,6 +159,7 @@ namespace DSA.Part2.Graphs
             return resultList;
         }
 
+        //similar to TraverseDepthFirstRecursive
         public List<string> TopologicalSort()
         {
             var visited = new HashSet<GNode>();
@@ -183,6 +184,65 @@ namespace DSA.Part2.Graphs
 
             stack.Push(root);
         }
+
+
+        public bool HasCycle()
+        {
+            var allNodes = new HashSet<GNode>();
+            foreach (var node in nodes)
+                allNodes.Add(node.Value);
+
+
+            var visited = new HashSet<GNode>();
+            var visiting = new HashSet<GNode>();
+            var neighborTracker = new Dictionary<GNode, GNode>();
+
+            while (allNodes.Count > 0)
+            {
+                // var current = allNodes.First();
+                var iterator = allNodes.GetEnumerator();
+                iterator.MoveNext();
+                neighborTracker.Add(iterator.Current, null);
+
+                if (HasCycle(iterator.Current, allNodes, visited, visiting, neighborTracker))
+                {
+                    foreach (var node in neighborTracker)
+                        Console.Write(" " + node);
+                    return true;
+                }
+            }
+
+
+            return false;
+        }
+
+        private bool HasCycle(GNode node, HashSet<GNode> allNodes, HashSet<GNode> visited, HashSet<GNode> visiting, Dictionary<GNode, GNode> neighborTracker)
+        {
+            allNodes.Remove(node);
+            visiting.Add(node);
+
+            foreach (var neighbor in adjacencyList[node])
+            {
+                if (visited.Contains(node))
+                    continue;
+
+                if (visiting.Contains(node))
+                    return true;
+
+                if (neighborTracker.ContainsKey(node))
+                    neighborTracker[node] = neighbor;
+                else
+                    neighborTracker.Add(node, neighbor);
+
+                if (HasCycle(neighbor, allNodes, visited, visiting, neighborTracker))
+                    return true;
+            }
+
+            visiting.Remove(node);
+            visited.Add(node);
+            return false;
+        }
+
 
         //Print()
         //  A is connected to [B,C]

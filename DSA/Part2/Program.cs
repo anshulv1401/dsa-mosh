@@ -295,5 +295,19 @@ Console.WriteLine("Iterative BFS:" + string.Join(",", graph3.TraverseBreathFirst
 
 Console.WriteLine("TopologicalSort :" + string.Join(",", graph3.TopologicalSort()));
 
+Console.WriteLine("HasCycle :" + graph3.HasCycle());
+
+var graph4 = new Graph();
+graph4.AddNode("A");
+graph4.AddNode("B");
+graph4.AddNode("C");
+graph4.AddNode("D");
+graph4.AddEdge("A", "B");
+graph4.AddEdge("B", "C");
+graph4.AddEdge("C", "A");
+graph4.AddEdge("A", "D");
+
+Console.WriteLine(" HasCycle :" + graph4.HasCycle());
+
 #endregion
 
