@@ -313,58 +313,58 @@
 
 #region Undirected Graphs
 
-using DSA.Part2.Graphs;
+// using DSA.Part2.Graphs;
 
-var weightedGraph = new WeightedGraph();
+// var weightedGraph = new WeightedGraph();
 
-weightedGraph.AddNode("A");
-weightedGraph.AddNode("B");
-weightedGraph.AddNode("C");
+// weightedGraph.AddNode("A");
+// weightedGraph.AddNode("B");
+// weightedGraph.AddNode("C");
 
-weightedGraph.AddEdge("A", "B", 3);
-weightedGraph.AddEdge("A", "C", 2);
-weightedGraph.Print();
-
-
-
-var weightedGraph2 = new WeightedGraph();
-
-weightedGraph2.AddNode("A");
-weightedGraph2.AddNode("B");
-weightedGraph2.AddNode("C");
-weightedGraph2.AddNode("D");
-weightedGraph2.AddNode("E");
-
-weightedGraph2.AddEdge("A", "B", 3);
-weightedGraph2.AddEdge("A", "C", 4);
-weightedGraph2.AddEdge("A", "D", 2);
-weightedGraph2.AddEdge("D", "C", 1);
-weightedGraph2.AddEdge("D", "B", 6);
-weightedGraph2.AddEdge("D", "E", 5);
-weightedGraph2.AddEdge("B", "E", 1);
-
-weightedGraph2.Print();
-
-Console.WriteLine("Recursive Shortest distance between A and E is " + weightedGraph2.GetShortestDistanceRecursive("A", "E"));
-Console.WriteLine("Iterative Shortest path between A and E is " + string.Join(",", weightedGraph2.GetShortestDistanceIterative("A", "E")));
-Console.WriteLine("Has cycle " + weightedGraph2.HasCycle());
+// weightedGraph.AddEdge("A", "B", 3);
+// weightedGraph.AddEdge("A", "C", 2);
+// weightedGraph.Print();
 
 
-var weightedGraph3 = new WeightedGraph();
 
-weightedGraph3.AddNode("A");
-weightedGraph3.AddNode("B");
-weightedGraph3.AddNode("C");
+// var weightedGraph2 = new WeightedGraph();
 
-weightedGraph3.AddEdge("A", "B", 3);
-weightedGraph3.AddEdge("B", "C", 4);
-weightedGraph3.AddEdge("C", "A", 2);
+// weightedGraph2.AddNode("A");
+// weightedGraph2.AddNode("B");
+// weightedGraph2.AddNode("C");
+// weightedGraph2.AddNode("D");
+// weightedGraph2.AddNode("E");
 
-weightedGraph3.Print();
+// weightedGraph2.AddEdge("A", "B", 3);
+// weightedGraph2.AddEdge("A", "C", 4);
+// weightedGraph2.AddEdge("A", "D", 2);
+// weightedGraph2.AddEdge("D", "C", 1);
+// weightedGraph2.AddEdge("D", "B", 6);
+// weightedGraph2.AddEdge("D", "E", 5);
+// weightedGraph2.AddEdge("B", "E", 1);
 
-Console.WriteLine("Has cycle " + weightedGraph3.HasCycle());
+// weightedGraph2.Print();
 
-var weightedGraph4 = new WeightedGraph();
+// Console.WriteLine("Recursive Shortest distance between A and E is " + weightedGraph2.GetShortestDistanceRecursive("A", "E"));
+// Console.WriteLine("Iterative Shortest path between A and E is " + string.Join(",", weightedGraph2.GetShortestDistanceIterative("A", "E")));
+// Console.WriteLine("Has cycle " + weightedGraph2.HasCycle());
+
+
+// var weightedGraph3 = new WeightedGraph();
+
+// weightedGraph3.AddNode("A");
+// weightedGraph3.AddNode("B");
+// weightedGraph3.AddNode("C");
+
+// weightedGraph3.AddEdge("A", "B", 3);
+// weightedGraph3.AddEdge("B", "C", 4);
+// weightedGraph3.AddEdge("C", "A", 2);
+
+// weightedGraph3.Print();
+
+// Console.WriteLine("Has cycle " + weightedGraph3.HasCycle());
+
+// var weightedGraph4 = new WeightedGraph();
 
 // weightedGraph4.AddNode("A");
 // weightedGraph4.AddNode("B");
@@ -377,8 +377,8 @@ var weightedGraph4 = new WeightedGraph();
 // weightedGraph4.AddEdge("C", "D", 5);
 // weightedGraph4.AddEdge("D", "B", 4);
 
-var minSpanningTree = weightedGraph4.GetMinSpanningTree();
-minSpanningTree.Print();
+// var minSpanningTree = weightedGraph4.GetMinSpanningTree();
+// minSpanningTree.Print();
 
 #endregion
 
