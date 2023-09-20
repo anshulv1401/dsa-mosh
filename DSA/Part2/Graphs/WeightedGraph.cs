@@ -69,7 +69,7 @@ namespace DSA.Part2.Graphs
             nodes[fromLabel].AddEdge(nodes[toLabel], weight);
         }
 
-
+        //Dijkstra's Algo
         public List<string> GetShortestDistanceIterative(string from, string to)
         {
             if (!(nodes.ContainsKey(from) && nodes.ContainsKey(to)))
@@ -131,6 +131,7 @@ namespace DSA.Part2.Graphs
 
         }
 
+        //Dijkstra's Algo
         public int GetShortestDistanceRecursive(string from, string to)
         {
             if (!(nodes.ContainsKey(from) && nodes.ContainsKey(to)))
@@ -230,6 +231,46 @@ namespace DSA.Part2.Graphs
 
             return false;
         }
+
+        //Prims Algorithm
+        public WeightedGraph GetMinSpanningTree()
+        {
+            PriorityQueue<Edge, int> edges = new();
+            WeightedGraph tree = new();
+            HashSet<Node> visited = new();
+
+            if (nodes.Count <= 0)
+                return tree;
+
+            var iterator = nodes.Values.GetEnumerator();
+            iterator.MoveNext();
+            visited.Add(iterator.Current);
+            tree.AddNode(iterator.Current.ToString());
+
+            foreach (var edge in iterator.Current.GetEdges())
+                edges.Enqueue(edge, edge.weight);
+
+            while (edges.Count > 0)
+            {
+                var currentEdge = edges.Dequeue();
+                var current = currentEdge.from;
+                var nextNode = currentEdge.to;
+
+                if (visited.Contains(nextNode))
+                    continue;
+
+                visited.Add(nextNode);
+                tree.AddNode(nextNode.ToString());
+                tree.AddEdge(current.ToString(), nextNode.ToString(), currentEdge.weight);
+
+                foreach (var edge in nextNode.GetEdges())
+                    if (!visited.Contains(edge.to))
+                        edges.Enqueue(edge, edge.weight);
+            }
+
+            return tree;
+        }
+
 
         //Print()
         //  A is connected to [B,C]

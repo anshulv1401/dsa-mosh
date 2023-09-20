@@ -235,3 +235,13 @@ Graphs contains Nodes and egdes in which a node can connect to multiple nodes.
                   prev[v] ← u
       return dist[], prev[]
 ```
+
+- Spanning Tree: for N nodes we should have N-1 edges.
+  - Spanning trees are without cycles
+  - Prim's algorithm for finding the minimum spanning tree.
+    - Extend the tree by adding the smallest connected edge
+    - Example of greedy algorithm
+  - Impl
+    - Use a priority queue
+    - Repeat until tree has all the nodes
+    - Represent the tree using WeightedGraph

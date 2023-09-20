@@ -364,5 +364,21 @@ weightedGraph3.Print();
 
 Console.WriteLine("Has cycle " + weightedGraph3.HasCycle());
 
+var weightedGraph4 = new WeightedGraph();
+
+// weightedGraph4.AddNode("A");
+// weightedGraph4.AddNode("B");
+// weightedGraph4.AddNode("C");
+// weightedGraph4.AddNode("D");
+
+// weightedGraph4.AddEdge("A", "B", 3);
+// weightedGraph4.AddEdge("A", "C", 1);
+// weightedGraph4.AddEdge("C", "B", 2);
+// weightedGraph4.AddEdge("C", "D", 5);
+// weightedGraph4.AddEdge("D", "B", 4);
+
+var minSpanningTree = weightedGraph4.GetMinSpanningTree();
+minSpanningTree.Print();
+
 #endregion
 
