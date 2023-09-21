@@ -16,3 +16,13 @@
   - Allocating extra space is not an issue
   - Values are positve integers
   - Most of the values in the range are present
+
+## Searching Algorithms
+
+| Searching algo     | Best     | Worst    | comment   |
+| ------------------ | -------- | -------- | --------- |
+| Linear Search      | O(1)     | O(n)     |           |
+| Binary Search      | O(log n) | O(log n) | O(n)/O(1) |
+| Ternary Search     |          |          |           |
+| Jump Search        |          |          |           |
+| Exponential Search |          |          |           |
