@@ -14,5 +14,10 @@ var inputArray3 = new int[] { 100, 30, 20, 10, 50, 100 };
 SortingAlgo.InsectionSort(inputArray3);
 Console.WriteLine(string.Join(",", inputArray3));
 
+
+var inputArray4 = new int[] { };
+MergeSort.Sort(inputArray4);
+Console.WriteLine(string.Join(",", inputArray4));
+
 #endregion
 

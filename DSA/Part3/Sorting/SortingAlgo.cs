@@ -56,9 +56,5 @@ namespace DSA.Part3.Sorting
                 inputArray[j + 1] = current;
             }
         }
-
-        public static void MergeSort(int[] inputArray)
-        {
-        }
     }
 }
