@@ -37,7 +37,7 @@ namespace DSA.Part3.Sorting
             }
         }
 
-        public static void InsectionSort(int[] inputArray)
+        public static void InsertionSort(int[] inputArray)
         {
             for (int i = 1; i < inputArray.Length; i++)
             {

@@ -21,10 +21,10 @@ namespace DSA.Part3.Sorting
             Sort(leftArray);
             Sort(rightArray);
 
-            MergeArray(leftArray, rightArray, inputArray);
+            Merge(leftArray, rightArray, inputArray);
         }
 
-        private static void MergeArray(int[] leftArray, int[] rightArray, int[] result)
+        private static void Merge(int[] leftArray, int[] rightArray, int[] result)
         {
             int i = 0, j = 0, k = 0;
             while (i < leftArray.Length && j < rightArray.Length)
