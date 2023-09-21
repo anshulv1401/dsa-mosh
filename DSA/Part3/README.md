@@ -9,8 +9,8 @@
 | Insertion Sort | O(n)       | O(n^2)     |                       |
 | Merge Sort     | O(n log n) | O(n log n) | Requires extra space  |
 | Quick Sort     | O(n log n) | O(n^2)     | In place alog         |
-| Counting Sort  | O(n)       | O(n^2)     | Time-memory trade off |
-| Bucket Sort    |            |            |                       |
+| Counting Sort  | O(n)       |            | Time-memory trade off |
+| Bucket Sort    | O(n)       | O(n^2)     | Space comp : O(n +k)  |
 
 - Counting Sort use when
   - Allocating extra space is not an issue

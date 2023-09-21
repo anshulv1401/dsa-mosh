@@ -28,7 +28,12 @@ Console.WriteLine("Counting Sort " + string.Join(",", inputArray6));
 
 var inputArray7 = new int[] { 15, 6, 3, 22, 10, 13 };
 CountingSort.Sort(inputArray7, 3, 22);
-Console.WriteLine("Counting Sort " + string.Join(",", inputArray7));
+Console.WriteLine("Counting improved Sort " + string.Join(",", inputArray7));
+
+var inputArray8 = new int[] { 15, 6, 3, 22, 10, 13 };
+// var inputArray8 = new int[] { 7, 1, 3, 5, 3 };
+BucketSort.Sort(inputArray8, 9);
+Console.WriteLine("Bucket Sort " + string.Join(",", inputArray8));
 
 #endregion
 

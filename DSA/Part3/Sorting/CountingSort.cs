@@ -8,7 +8,7 @@ namespace DSA.Part3.Sorting
             int[] countsArray = new int[max + 1];
 
             foreach (var item in inputArray)
-                countsArray[inputArray[item]]++;
+                countsArray[item]++;
 
             int index = 0;
             for (int i = 0; i < countsArray.Length; i++)
@@ -29,7 +29,7 @@ namespace DSA.Part3.Sorting
             int[] countsArray = new int[size];
 
             foreach (var item in inputArray)
-                countsArray[inputArray[item] - min]++;
+                countsArray[item - min]++;
 
             int index = 0;
             for (int i = 0; i < countsArray.Length; i++)
