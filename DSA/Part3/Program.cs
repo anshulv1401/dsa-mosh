@@ -66,5 +66,10 @@ Console.WriteLine("Reverse Words " + Exercises.ReverseWords("   Hello! my name i
 Console.WriteLine("IsRotation " + Exercises.IsRotation("ABCD", "DABC"));
 Console.WriteLine("IsRotation " + Exercises.IsRotation2("AB CD", "DABC "));
 Console.WriteLine("Remove Duplicates " + Exercises.RemoveDuplicateCharacters("Helloooffff||11"));
+Console.WriteLine("Most Repeated Char " + Exercises.FindMostRepeatedChar("Hellooooffff||11"));
+Console.WriteLine("Most Repeated Char2 " + Exercises.FindMostRepeatedChar2("Helloooofffff||11"));
+Console.WriteLine("Capitalize " + Exercises.Capitalize("  trees are   beautiful   "));
+Console.WriteLine("Are Anagrams " + Exercises.AreAnagram("trees are beautiful", "trees are beautiful"));
+Console.WriteLine("Are Anagrams2 " + Exercises.AreAnagram2("trees are beautiful", "trees are beautiful"));
 
 #endregion

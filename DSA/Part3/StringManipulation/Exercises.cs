@@ -1,4 +1,5 @@
 
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 
 namespace DSA.Part3.StringManipulation
@@ -24,7 +25,7 @@ namespace DSA.Part3.StringManipulation
         public static string ReverseAString(string inputStr)
         {
             if (string.IsNullOrWhiteSpace(inputStr))
-                return "";
+                return string.Empty;
 
             // var chArr = inputStr.ToCharArray();
             // return new String(chArr.Reverse().ToArray());
@@ -39,7 +40,7 @@ namespace DSA.Part3.StringManipulation
         public static string ReverseWords(string inputWords)
         {
             if (string.IsNullOrWhiteSpace(inputWords))
-                return "";
+                return string.Empty;
 
             var words = inputWords.Trim().Split(" ");
 
@@ -104,20 +105,143 @@ namespace DSA.Part3.StringManipulation
         public static string RemoveDuplicateCharacters(string inputString)
         {
             if (string.IsNullOrEmpty(inputString))
-                return "";
+                return string.Empty;
 
-            var set = new HashSet<char>();
+            var seen = new HashSet<char>();
             var sb = new StringBuilder();
 
             foreach (var ch in inputString)
             {
-                if (set.Contains(ch))
+                if (seen.Contains(ch))
                     continue;
-                set.Add(ch);
+                seen.Add(ch);
                 sb.Append(ch);
             }
 
             return sb.ToString();
         }
+
+        public static char FindMostRepeatedChar(string inputString)
+        {
+            char maxCh = char.MinValue;
+            if (string.IsNullOrEmpty(inputString))
+                return maxCh;
+
+            var frequencies = new Dictionary<char, int>
+            {
+                { char.MinValue, 0 }
+            };
+
+            foreach (var ch in inputString)
+            {
+                if (frequencies.ContainsKey(ch))
+                    frequencies[ch]++;
+                else
+                    frequencies[ch] = 1;
+
+                if (frequencies[maxCh] < frequencies[ch])
+                    maxCh = ch;
+            }
+
+            return maxCh;
+        }
+
+        public static char FindMostRepeatedChar2(string inputString)
+        {
+            const int ASCII_SIZE = 256;
+            int[] freq = new int[ASCII_SIZE];
+
+            int maxCh = char.MinValue;
+            if (string.IsNullOrEmpty(inputString))
+                return (char)maxCh;
+
+            foreach (var ch in inputString)
+            {
+                freq[ch]++;
+                if (freq[maxCh] < freq[ch])
+                    maxCh = ch;
+            }
+
+            return (char)maxCh;
+        }
+
+        public static string Capitalize(string inputString)
+        {
+            if (string.IsNullOrWhiteSpace(inputString))
+                return string.Empty;
+
+            var words = inputString.Trim().Split(" ");
+
+            var sb = new StringBuilder();
+            foreach (var word in words)
+            {
+                if (string.IsNullOrWhiteSpace(word))
+                    continue;
+
+                var cap = word[..1].ToString().ToUpper() + word[1..];
+                sb.Append(cap);
+                sb.Append(' ');
+            }
+            sb.Remove(sb.Length - 1, 1);
+            return sb.ToString();
+        }
+
+        //A string is an anagram of another string if it has the exact same characters in any order.
+        public static bool AreAnagram(string inputString1, string inputString2)
+        {
+            if (string.IsNullOrEmpty(inputString1) || string.IsNullOrEmpty(inputString2))
+                return false;
+
+            var wordsMap1 = new Dictionary<char, int>();
+            var wordsMap2 = new Dictionary<char, int>();
+
+            foreach (var ch in inputString1)
+                if (wordsMap1.ContainsKey(ch))
+                    wordsMap1[ch]++;
+                else
+                    wordsMap1[ch] = 1;
+
+            foreach (var ch in inputString2)
+                if (wordsMap2.ContainsKey(ch))
+                    wordsMap2[ch]++;
+                else
+                    wordsMap2[ch] = 1;
+
+            if (wordsMap1.Count != wordsMap2.Count)
+                return false;
+
+            foreach (var ch in wordsMap1.Keys)
+            {
+                if (!wordsMap2.ContainsKey(ch))
+                    return false;
+
+                if (wordsMap2[ch] != wordsMap1[ch])
+                    return false;
+            }
+
+
+            return true;
+        }
+
+        public static bool AreAnagram2(string inputString1, string inputString2)
+        {
+            if (string.IsNullOrEmpty(inputString1) || string.IsNullOrEmpty(inputString2))
+                return false;
+            var chArr1 = inputString1.ToCharArray();
+            var chArr2 = inputString2.ToCharArray();
+
+            Array.Sort(chArr1);
+            Array.Sort(chArr2);
+
+            for (int i = 0; i < chArr1.Length; i++)
+            {
+                if (chArr1[i] != chArr2[i])
+                    return false;
+            }
+
+            return true;
+        }
+
+
     }
 }
