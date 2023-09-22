@@ -51,4 +51,6 @@ Console.WriteLine("Binary Search " + BinarySearch.SearchIt(inputArray9, 6));
 
 Console.WriteLine("Ternary Search " + TernarySearch.Search(inputArray9, -1));
 
+Console.WriteLine("Jump Search " + JumpSearch.Search(inputArray9, 9));
+
 #endregion
