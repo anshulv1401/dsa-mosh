@@ -71,5 +71,6 @@ Console.WriteLine("Most Repeated Char2 " + Exercises.FindMostRepeatedChar2("Hell
 Console.WriteLine("Capitalize " + Exercises.Capitalize("  trees are   beautiful   "));
 Console.WriteLine("Are Anagrams " + Exercises.AreAnagram("trees are beautifulff", "trees are beautifulgg"));
 Console.WriteLine("Are Anagrams2 " + Exercises.AreAnagram2("trees are beautiful", "trees are beautiful"));
+Console.WriteLine("Is Palindrome " + Exercises.IsPalindrome("CAA   AAC"));
 
 #endregion

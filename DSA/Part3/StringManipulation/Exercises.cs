@@ -248,5 +248,19 @@ namespace DSA.Part3.StringManipulation
 
             return true;
         }
+
+        public static bool IsPalindrome(string inputString)
+        {
+            if (string.IsNullOrEmpty(inputString))
+                return false;
+
+            for (int i = 0; i < inputString.Length / 2; i++)
+            {
+                if (inputString[i] != inputString[inputString.Length - 1 - i])
+                    return false;
+            }
+
+            return true;
+        }
     }
 }
