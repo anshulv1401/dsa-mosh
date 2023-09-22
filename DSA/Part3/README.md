@@ -25,7 +25,4 @@
 | Binary Search      | O(log n)        | O(log n)        | Space O(n)/O(1)               |
 | Ternary Search     | O(log n) base 3 | O(log n) base 3 | performs bad in worst case    |
 | Jump Search        | O(root n)       | O(root n)       | Ideal block size is Root of n |
-| Exponential Search |                 |                 |                               |
-
-- Ternary Search
-- Jump search,
+| Exponential Search | O(log i)        | O(log i)        |                               |

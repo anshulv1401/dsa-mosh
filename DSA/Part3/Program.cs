@@ -42,7 +42,7 @@
 using DSA.Part3.Searching;
 using DSA.Part3.Sorting;
 
-var inputArray9 = new int[] { 15, 6, 3, 22, 10, 13 };
+var inputArray9 = new int[] { -1, 15, 6, 3, 22, 10, 13 };
 Console.WriteLine("Linear Search " + LinearSearch.Search(inputArray9, 6));
 
 QuickSort.Sort(inputArray9);
@@ -52,5 +52,6 @@ Console.WriteLine("Binary Search " + BinarySearch.SearchIt(inputArray9, 6));
 Console.WriteLine("Ternary Search " + TernarySearch.Search(inputArray9, -1));
 
 Console.WriteLine("Jump Search " + JumpSearch.Search(inputArray9, 9));
+Console.WriteLine("Exponential Search " + JumpSearch.Search(inputArray9, -1));
 
 #endregion

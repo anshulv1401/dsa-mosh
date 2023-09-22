@@ -8,7 +8,7 @@ namespace DSA.Part3.Searching
             return Search(inputArray, num, 0, inputArray.Length);
         }
 
-        private static int Search(int[] inputArray, int num, int start, int end)
+        public static int Search(int[] inputArray, int num, int start, int end)
         {
             if (end < start)
                 return -1;
