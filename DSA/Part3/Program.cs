@@ -69,7 +69,7 @@ Console.WriteLine("Remove Duplicates " + Exercises.RemoveDuplicateCharacters("He
 Console.WriteLine("Most Repeated Char " + Exercises.FindMostRepeatedChar("Hellooooffff||11"));
 Console.WriteLine("Most Repeated Char2 " + Exercises.FindMostRepeatedChar2("Helloooofffff||11"));
 Console.WriteLine("Capitalize " + Exercises.Capitalize("  trees are   beautiful   "));
-Console.WriteLine("Are Anagrams " + Exercises.AreAnagram("trees are beautiful", "trees are beautiful"));
+Console.WriteLine("Are Anagrams " + Exercises.AreAnagram("trees are beautifulff", "trees are beautifulgg"));
 Console.WriteLine("Are Anagrams2 " + Exercises.AreAnagram2("trees are beautiful", "trees are beautiful"));
 
 #endregion

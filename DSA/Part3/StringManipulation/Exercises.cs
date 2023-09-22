@@ -187,52 +187,59 @@ namespace DSA.Part3.StringManipulation
         }
 
         //A string is an anagram of another string if it has the exact same characters in any order.
+        //O(n)
         public static bool AreAnagram(string inputString1, string inputString2)
         {
             if (string.IsNullOrEmpty(inputString1) || string.IsNullOrEmpty(inputString2))
                 return false;
 
-            var wordsMap1 = new Dictionary<char, int>();
-            var wordsMap2 = new Dictionary<char, int>();
 
-            foreach (var ch in inputString1)
-                if (wordsMap1.ContainsKey(ch))
-                    wordsMap1[ch]++;
-                else
-                    wordsMap1[ch] = 1;
-
-            foreach (var ch in inputString2)
-                if (wordsMap2.ContainsKey(ch))
-                    wordsMap2[ch]++;
-                else
-                    wordsMap2[ch] = 1;
-
-            if (wordsMap1.Count != wordsMap2.Count)
+            if (inputString1.Length != inputString2.Length)
                 return false;
 
-            foreach (var ch in wordsMap1.Keys)
-            {
-                if (!wordsMap2.ContainsKey(ch))
-                    return false;
+            var wordsMap = new Dictionary<char, int>();
 
-                if (wordsMap2[ch] != wordsMap1[ch])
+            //O(n)
+            foreach (var ch in inputString1.ToLower())
+                if (wordsMap.ContainsKey(ch))
+                    wordsMap[ch]++;
+                else
+                    wordsMap[ch] = 1;
+
+            //O(n)
+            foreach (var ch in inputString2.ToLower())
+            {
+                if (wordsMap.ContainsKey(ch))
+                {
+                    wordsMap[ch]--;
+                    if (wordsMap[ch] <= 0)
+                        wordsMap.Remove(ch);
+                }
+                else
                     return false;
             }
-
 
             return true;
         }
 
+        //O(n log n)
         public static bool AreAnagram2(string inputString1, string inputString2)
         {
             if (string.IsNullOrEmpty(inputString1) || string.IsNullOrEmpty(inputString2))
                 return false;
+
+            if (inputString1.Length != inputString2.Length)
+                return false;
+
+            //O(n)
             var chArr1 = inputString1.ToCharArray();
             var chArr2 = inputString2.ToCharArray();
 
+            //O(n log n)
             Array.Sort(chArr1);
             Array.Sort(chArr2);
 
+            //O(n)
             for (int i = 0; i < chArr1.Length; i++)
             {
                 if (chArr1[i] != chArr2[i])
@@ -241,7 +248,5 @@ namespace DSA.Part3.StringManipulation
 
             return true;
         }
-
-
     }
 }
