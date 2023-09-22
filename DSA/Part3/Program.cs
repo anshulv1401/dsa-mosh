@@ -49,4 +49,6 @@ QuickSort.Sort(inputArray9);
 Console.WriteLine("Binary Search " + BinarySearch.Search(inputArray9, 6));
 Console.WriteLine("Binary Search " + BinarySearch.SearchIt(inputArray9, 6));
 
+Console.WriteLine("Ternary Search " + TernarySearch.Search(inputArray9, -1));
+
 #endregion

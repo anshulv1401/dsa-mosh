@@ -19,10 +19,10 @@
 
 ## Searching Algorithms
 
-| Searching algo     | Best     | Worst    | comment   |
-| ------------------ | -------- | -------- | --------- |
-| Linear Search      | O(1)     | O(n)     |           |
-| Binary Search      | O(log n) | O(log n) | O(n)/O(1) |
-| Ternary Search     |          |          |           |
-| Jump Search        |          |          |           |
-| Exponential Search |          |          |           |
+| Searching algo     | Best     | Worst    | comment         |
+| ------------------ | -------- | -------- | --------------- |
+| Linear Search      | O(1)     | O(n)     |                 |
+| Binary Search      | O(log n) | O(log n) | Space O(n)/O(1) |
+| Ternary Search     | O(log n) | O(log n) |                 |
+| Jump Search        |          |          |                 |
+| Exponential Search |          |          |                 |

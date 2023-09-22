@@ -10,7 +10,7 @@ namespace DSA.Part3.Searching
 
         private static int Search(int[] inputArray, int num, int start, int end)
         {
-            if (start < end)
+            if (end < start)
                 return -1;
 
             int middle = (start + end) / 2;
