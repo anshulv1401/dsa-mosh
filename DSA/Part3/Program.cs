@@ -58,19 +58,28 @@
 
 #region StringManipulation
 
-using DSA.Part3.StringManipulation;
+// using DSA.Part3.StringManipulation;
 
-Console.WriteLine("Number of vowels " + Exercises.FindNumberOfVowels("asf asdf fdsaf fd ||| f {{}} "));
-Console.WriteLine("Reverse a string " + Exercises.ReverseAString("Hello my name is Anshul!"));
-Console.WriteLine("Reverse Words " + Exercises.ReverseWords("   Hello! my name is Anshul    "));
-Console.WriteLine("IsRotation " + Exercises.IsRotation("ABCD", "DABC"));
-Console.WriteLine("IsRotation " + Exercises.IsRotation2("AB CD", "DABC "));
-Console.WriteLine("Remove Duplicates " + Exercises.RemoveDuplicateCharacters("Helloooffff||11"));
-Console.WriteLine("Most Repeated Char " + Exercises.FindMostRepeatedChar("Hellooooffff||11"));
-Console.WriteLine("Most Repeated Char2 " + Exercises.FindMostRepeatedChar2("Helloooofffff||11"));
-Console.WriteLine("Capitalize " + Exercises.Capitalize("  trees are   beautiful   "));
-Console.WriteLine("Are Anagrams " + Exercises.AreAnagram("trees are beautifulff", "trees are beautifulgg"));
-Console.WriteLine("Are Anagrams2 " + Exercises.AreAnagram2("trees are beautiful", "trees are beautiful"));
-Console.WriteLine("Is Palindrome " + Exercises.IsPalindrome("CAA   AAC"));
+// Console.WriteLine("Number of vowels " + Exercises.FindNumberOfVowels("asf asdf fdsaf fd ||| f {{}} "));
+// Console.WriteLine("Reverse a string " + Exercises.ReverseAString("Hello my name is Anshul!"));
+// Console.WriteLine("Reverse Words " + Exercises.ReverseWords("   Hello! my name is Anshul    "));
+// Console.WriteLine("IsRotation " + Exercises.IsRotation("ABCD", "DABC"));
+// Console.WriteLine("IsRotation " + Exercises.IsRotation2("AB CD", "DABC "));
+// Console.WriteLine("Remove Duplicates " + Exercises.RemoveDuplicateCharacters("Helloooffff||11"));
+// Console.WriteLine("Most Repeated Char " + Exercises.FindMostRepeatedChar("Hellooooffff||11"));
+// Console.WriteLine("Most Repeated Char2 " + Exercises.FindMostRepeatedChar2("Helloooofffff||11"));
+// Console.WriteLine("Capitalize " + Exercises.Capitalize("  trees are   beautiful   "));
+// Console.WriteLine("Are Anagrams " + Exercises.AreAnagram("trees are beautifulff", "trees are beautifulgg"));
+// Console.WriteLine("Are Anagrams2 " + Exercises.AreAnagram2("trees are beautiful", "trees are beautiful"));
+// Console.WriteLine("Is Palindrome " + Exercises.IsPalindrome("CAA   AAC"));
+
 
 #endregion
+
+using DSA.Part3;
+
+string[] ops = new string[] { "5", "2", "D", "C", "+" };
+
+int output = PracticeTest.CalPoints(ops);
+
+Console.Write(output.ToString());
