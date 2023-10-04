@@ -78,8 +78,18 @@
 
 using DSA.Part3;
 
-string[] ops = new string[] { "5", "2", "D", "C", "+" };
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        string[] ops = new string[] { "5", "2", "D", "C", "+" };
 
-int output = PracticeTest.CalPoints(ops);
+        int output = PracticeTest.CalPoints(ops);
 
-Console.Write(output.ToString());
+        Console.WriteLine(output.ToString());
+
+
+        Console.WriteLine(PracticeTest.SmallestSubstringPattern("this is a test string", "tist")); ;
+        Console.WriteLine(PracticeTest.SmallestSubstringPattern("geeksforgeeks", "ksfor"));
+    }
+}
